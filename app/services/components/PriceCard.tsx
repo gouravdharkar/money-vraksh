@@ -20,7 +20,7 @@ export default function PriceCard({ service }: PriceCardProps) {
   const tiers = getPricingTiers(service);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full">
       {tiers.map((tier, idx) => {
         const isYearly = tier.tier === 'yearly';
         const isHalfYearly = tier.tier === 'halfYearly';
@@ -50,7 +50,7 @@ export default function PriceCard({ service }: PriceCardProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
-            className={`rounded-xl border p-5 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between ${borderClass} ${bgClass}`}
+            className={`rounded-xl border p-4 sm:p-5 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between ${borderClass} ${bgClass}`}
           >
             {/* Savings Badge */}
             {tier.savingsPercent > 0 && (
@@ -66,26 +66,26 @@ export default function PriceCard({ service }: PriceCardProps) {
             )}
             
             <div className="relative z-10">
-              <p className={`font-label-md text-[10px] uppercase tracking-wider mb-2 ${titleColor}`}>
+              <p className={`font-label-md text-[10px] uppercase tracking-wider mb-1.5 ${titleColor}`}>
                 {tier.label}
               </p>
               
               <div className="flex items-baseline gap-1 mt-1">
-                <span className={`material-symbols-outlined text-lg ${currencyColor}`}>currency_rupee</span>
-                <span className={`font-headline-md text-2xl font-bold font-headline tracking-tight ${priceColor}`}>
+                <span className={`material-symbols-outlined text-base sm:text-lg ${currencyColor}`}>currency_rupee</span>
+                <span className={`font-headline-md text-xl sm:text-2xl font-bold font-headline tracking-tight ${priceColor}`}>
                   {formatCurrency(tier.price).replace('₹', '')}
                 </span>
               </div>
               
               {tier.months > 1 && (
-                <p className="font-label-md text-xs text-on-surface-variant/40 mt-1">
+                <p className="font-label-md text-[11px] sm:text-xs text-on-surface-variant/40 mt-1">
                   equivalent to <span className="font-semibold text-on-surface-variant/60">{formatCurrency(tier.equivalentMonthlyPrice)}</span>/mo
                 </p>
               )}
             </div>
 
             {tier.savingsAmount > 0 && (
-              <p className="font-body-md text-[11px] text-emerald-400/80 mt-4 font-medium border-t border-elegant/50 pt-2 relative z-10">
+              <p className="font-body-md text-[11px] text-emerald-400/80 mt-3 sm:mt-4 font-medium border-t border-elegant/50 pt-2 relative z-10">
                 Save {formatCurrency(tier.savingsAmount)} vs monthly
               </p>
             )}

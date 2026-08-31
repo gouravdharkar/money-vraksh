@@ -47,24 +47,24 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-12 sm:mb-16"
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className={`w-14 h-14 rounded-xl ${bgAccent} border ${borderClass} flex items-center justify-center`}>
-              <span className={`material-symbols-outlined text-3xl ${textAccent}`} style={{ fontVariationSettings: "'FILL' 1" }}>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 mb-5 sm:mb-6">
+            <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl ${bgAccent} border ${borderClass} flex items-center justify-center shrink-0`}>
+              <span className={`material-symbols-outlined text-2xl sm:text-3xl ${textAccent}`} style={{ fontVariationSettings: "'FILL' 1" }}>
                 {category.icon}
               </span>
             </div>
             <div>
-              <span className={`inline-block px-3 py-1 rounded-lg ${bgAccent} ${textAccent} text-xs font-bold tracking-wider uppercase`}>
+              <span className={`inline-block px-3 py-1 rounded-lg ${bgAccent} ${textAccent} text-[10px] sm:text-xs font-bold tracking-wider uppercase`}>
                 {category.shortName}
               </span>
-              <h1 className="font-headline text-3xl md:text-5xl font-normal text-on-surface mt-2 leading-tight tracking-tight">
+              <h1 className="font-headline text-2xl sm:text-4xl md:text-5xl font-normal text-on-surface mt-2 leading-tight tracking-tight">
                 {category.name} <span className="italic">Strategies</span>
               </h1>
             </div>
           </div>
-          <p className="font-body-lg text-body-lg text-slate-text max-w-2xl leading-relaxed">
+          <p className="font-body-lg text-sm sm:text-base text-slate-text max-w-2xl leading-relaxed">
             {category.longDescription}
           </p>
         </motion.section>

@@ -98,38 +98,38 @@ export default function Contact() {
   const springTransition = { type: "spring" as const, stiffness: 200, damping: 18 };
 
   return (
-    <div className="relative w-full pt-[120px] pb-24">
+    <div className="relative w-full pt-[100px] sm:pt-[120px] pb-24">
       {/* Light Leak Effect */}
       <div className="fixed inset-0 light-leak z-0" />
 
       <main className="flex-grow px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
         {/* Header */}
-        <div className="mb-16 text-center md:text-left">
-          <h1 className="font-display-lg text-4xl md:text-6xl font-normal text-on-surface mb-4 font-headline leading-tight tracking-tight">
+        <div className="mb-12 sm:mb-16 text-center md:text-left">
+          <h1 className="font-display-lg text-3xl sm:text-5xl md:text-6xl font-normal text-on-surface mb-3 sm:mb-4 font-headline leading-tight tracking-tight">
             Get in <span className="italic gradient-text-primary">Touch</span>
           </h1>
-          <p className="font-body-lg text-body-lg text-slate-text max-w-2xl leading-relaxed">
+          <p className="font-body-lg text-sm sm:text-base md:text-lg text-slate-text max-w-2xl leading-relaxed">
             Connect with our experts for personalized financial strategies, compliance inquiries, or general support.
           </p>
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-16">
-          {/* Left Column: Form (Spans 7) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-12 sm:mb-16">
+          {/* Left Column: Form (Spans 7 on desktop) */}
           <motion.div 
             whileHover={{
               boxShadow: "inset 0 1.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.4), 0 30px 80px rgba(78, 222, 163, 0.15)"
             }}
             style={{ boxShadow: initialShadow }}
             transition={springTransition}
-            className="md:col-span-7 bg-[#171717] p-8 rounded-2xl relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
+            className="lg:col-span-7 bg-[#171717] p-6 sm:p-8 rounded-2xl relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
           >
-            <h2 className="font-headline-lg text-2xl md:text-3xl font-normal mb-8 text-on-surface font-headline tracking-tight">
+            <h2 className="font-headline-lg text-2xl sm:text-3xl font-normal mb-6 sm:mb-8 text-on-surface font-headline tracking-tight">
               Send us a <span className="italic gradient-text-primary">Message</span>
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col">
                   <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                     Full Name
@@ -140,7 +140,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     type="text"
-                    className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30"
+                    className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 min-h-[44px] text-sm"
                     placeholder="John Doe"
                   />
                 </div>
@@ -154,13 +154,13 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     type="email"
-                    className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30"
+                    className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 min-h-[44px] text-sm"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col">
                   <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                     Phone Number
@@ -171,7 +171,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     type="tel"
-                    className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30"
+                    className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 min-h-[44px] text-sm"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -184,12 +184,13 @@ export default function Contact() {
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 appearance-none cursor-pointer"
+                      className="w-full bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 appearance-none cursor-pointer min-h-[44px] text-sm"
                     >
                       <option>Select a service...</option>
-                      <option>Portfolio Management</option>
-                      <option>Equity Research</option>
-                      <option>Algo Trading</option>
+                      <option>Index Advisory (Nifty &amp; BankNifty)</option>
+                      <option>Stock Options &amp; Futures</option>
+                      <option>Commodity (MCX Gold &amp; Silver)</option>
+                      <option>Long-Term Equity Portfolio</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-text">
                       <span className="material-symbols-outlined text-sm">expand_more</span>
@@ -207,7 +208,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 resize-none"
+                  className="bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 resize-none text-sm"
                   placeholder="How can we help you today?"
                   rows={4}
                 />
@@ -218,7 +219,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className={`w-full md:w-auto text-background font-label-md text-sm px-8 py-3 rounded-lg mt-4 transition-all font-bold focus-ring cursor-pointer flex items-center justify-center gap-2 ${
+                className={`w-full sm:w-auto text-background font-label-md text-sm px-8 py-3.5 rounded-lg mt-4 transition-all font-bold focus-ring cursor-pointer flex items-center justify-center gap-2 min-h-[44px] ${
                   isSuccess
                     ? "bg-gradient-to-r from-emerald-500 to-teal-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)]"
                     : "bg-gradient-to-r from-primary to-success-emerald hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
@@ -244,8 +245,8 @@ export default function Contact() {
             </form>
           </motion.div>
 
-          {/* Right Column: Info (Spans 5) */}
-          <div className="md:col-span-5 flex flex-col gap-gutter">
+          {/* Right Column: Info (Spans 5 on desktop) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
             {/* Contact Details Card */}
             <motion.div 
               whileHover={{
@@ -254,7 +255,7 @@ export default function Contact() {
               }}
               style={{ boxShadow: initialShadow }}
               transition={springTransition}
-              className="bg-[#171717] p-8 rounded-2xl flex-grow relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between"
+              className="bg-[#171717] p-6 sm:p-8 rounded-2xl flex-grow relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between"
             >
               <div>
                 <h3 className="font-headline-md text-lg font-bold text-premium-gold mb-6 font-headline">
@@ -337,7 +338,7 @@ export default function Contact() {
         </div>
 
         {/* Quick Contact Cards (Bento row) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
           <a
             href="tel:+919827562967"
             className="block h-full group focus-ring rounded-2xl cursor-pointer"
@@ -349,7 +350,7 @@ export default function Contact() {
               }}
               style={{ boxShadow: initialShadow }}
               transition={springTransition}
-              className="bg-[#171717] p-6 rounded-2xl h-full border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between min-h-[180px]"
+              className="bg-[#171717] p-5 sm:p-6 rounded-2xl h-full border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between min-h-[180px]"
             >
               <div className="w-12 h-12 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                 <span className="material-symbols-outlined text-3xl text-primary block">
@@ -381,7 +382,7 @@ export default function Contact() {
               }}
               style={{ boxShadow: initialShadow }}
               transition={springTransition}
-              className="bg-[#171717] p-6 rounded-2xl h-full border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between min-h-[180px]"
+              className="bg-[#171717] p-5 sm:p-6 rounded-2xl h-full border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between min-h-[180px]"
             >
               <div className="w-12 h-12 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                 <span className="material-symbols-outlined text-3xl text-premium-gold block" style={{ fontVariationSettings: "'FILL' 1" }}>
@@ -403,8 +404,8 @@ export default function Contact() {
           </a>
 
           <Link
-            href="/contact"
-            className="block h-full group focus-ring rounded-2xl"
+            href="/services#faq"
+            className="block h-full group focus-ring rounded-2xl sm:col-span-2 lg:col-span-1"
           >
             <motion.div
               whileHover={{
@@ -413,7 +414,7 @@ export default function Contact() {
               }}
               style={{ boxShadow: initialShadow }}
               transition={springTransition}
-              className="bg-[#171717] p-6 rounded-2xl h-full border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between min-h-[180px]"
+              className="bg-[#171717] p-5 sm:p-6 rounded-2xl h-full border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between min-h-[180px]"
             >
               <div className="w-12 h-12 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                 <span className="material-symbols-outlined text-3xl text-primary block">
@@ -438,9 +439,9 @@ export default function Contact() {
         {/* FAQ Section */}
         <motion.div 
           style={{ boxShadow: initialShadow }}
-          className="bg-[#171717] p-8 rounded-2xl max-w-4xl mx-auto border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
+          className="bg-[#171717] p-6 sm:p-8 md:p-10 rounded-2xl max-w-4xl mx-auto border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
         >
-          <h2 className="font-headline-lg text-2xl md:text-4xl font-normal mb-8 text-center text-on-surface font-headline tracking-tight">
+          <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-normal mb-6 sm:mb-8 text-center text-on-surface font-headline tracking-tight">
             Frequent <span className="italic gradient-text-primary">Inquiries</span>
           </h2>
           <div className="space-y-4">
@@ -450,13 +451,13 @@ export default function Contact() {
                 <div key={idx} className="border-b border-white/5 pb-4">
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full flex justify-between items-center text-left py-2 font-headline-md text-base font-bold text-on-surface font-headline cursor-pointer hover:text-primary transition-colors focus-ring rounded"
+                    className="w-full flex justify-between items-center text-left py-3 font-headline-md text-sm sm:text-base font-bold text-on-surface font-headline cursor-pointer hover:text-primary transition-colors focus-ring rounded min-h-[44px]"
                   >
-                    {faq.question}
+                    <span className="pr-4">{faq.question}</span>
                     <motion.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                      className="material-symbols-outlined text-primary"
+                      className="material-symbols-outlined text-primary shrink-0"
                     >
                       expand_more
                     </motion.span>
@@ -468,9 +469,9 @@ export default function Contact() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                        className="overflow-hidden pl-4 border-l-2 border-primary/30 mt-4 border-t border-white/[0.04] pt-4"
+                        className="overflow-hidden pl-3 sm:pl-4 border-l-2 border-primary/30 mt-3 sm:mt-4 border-t border-white/[0.04] pt-3 sm:pt-4"
                       >
-                        <p className="font-body-md text-body-md text-slate-text leading-relaxed">
+                        <p className="font-body-md text-xs sm:text-sm text-slate-text leading-relaxed">
                           {faq.answer}
                         </p>
                       </motion.div>

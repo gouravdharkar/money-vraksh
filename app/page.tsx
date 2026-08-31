@@ -22,128 +22,70 @@ export default function Home() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative px-margin-mobile md:px-margin-desktop py-12 md:py-24 max-w-container-max mx-auto min-h-[750px] flex items-center"
+        className="relative px-margin-mobile md:px-margin-desktop py-6 sm:py-10 max-w-container-max mx-auto"
       >
-        {/* Background Image Panel */}
-        <div
-          className="absolute inset-0 z-[-1] opacity-20 bg-cover bg-center rounded-2xl overflow-hidden mx-margin-mobile md:mx-margin-desktop my-6 border border-elegant"
-          style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDlNQ_mxpVKHmffOod9PpCUjb9exANO8Me3LV4sXhu9ySxB_ax2F5Bw63oPRX1Q69fbT7CypbVES437vPA7SFyxSxI1HIluMwqGiEPfd2IVBXaB6J-XK2G2iKf8mcG0vUYoeqXwNkuGkmxFFlHVGZmtit8sNJZTMN4msXkSJbtMUqb5xIdlVvW_3MZIamkF6w75bWuV4Mx-EcSEKwYvzcf5FcHtXZX_kVpr_jBRBjBHj6SmqJ8SLuiBCe7dR8b-lsVQwp1AIZ94boNf')",
-          }}
-        />
+        {/* Main Hero Card Container with generous internal padding */}
+        <div className="relative rounded-3xl overflow-hidden border border-elegant p-6 sm:p-10 md:p-12 lg:p-16 glass-panel shadow-2xl">
+          {/* Background Image Panel */}
+          <div
+            className="absolute inset-0 z-[-1] opacity-20 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDlNQ_mxpVKHmffOod9PpCUjb9exANO8Me3LV4sXhu9ySxB_ax2F5Bw63oPRX1Q69fbT7CypbVES437vPA7SFyxSxI1HIluMwqGiEPfd2IVBXaB6J-XK2G2iKf8mcG0vUYoeqXwNkuGkmxFFlHVGZmtit8sNJZTMN4msXkSJbtMUqb5xIdlVvW_3MZIamkF6w75bWuV4Mx-EcSEKwYvzcf5FcHtXZX_kVpr_jBRBjBHj6SmqJ8SLuiBCe7dR8b-lsVQwp1AIZ94boNf')",
+            }}
+          />
 
-        <div className="grid grid-cols-1 px-5 md:grid-cols-12 gap-gutter w-full">
-          {/* Hero Left Content */}
-          <div className="md:col-span-8 flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 bg-surface-container-high/50 border border-premium-gold/30 rounded-full px-10 py-1.5 w-fit mb-6 glass-panel">
-              <span className="material-symbols-outlined text-premium-gold text-sm">
-                verified
-              </span>
-              <span className="font-label-md text-label-md text-premium-gold uppercase tracking-widest text-xs">
-                Registered Research Analyst
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full items-center">
+            {/* Hero Left Content */}
+            <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-center text-center sm:text-left">
+              <div className="inline-flex items-center gap-2 bg-surface-container-high/60 border border-premium-gold/30 rounded-full px-4 sm:px-5 py-1.5 w-fit mb-5 sm:mb-6 glass-panel mx-auto sm:mx-0 shadow-sm">
+                <span className="material-symbols-outlined text-premium-gold text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+                  verified
+                </span>
+                <span className="font-label-md text-premium-gold uppercase tracking-widest text-[10px] sm:text-xs font-bold">
+                  SEBI NO - INH000025300
+                </span>
+              </div>
+              
+              <h1 className="font-display-lg text-3xl sm:text-5xl lg:text-6xl font-normal text-on-surface mb-4 sm:mb-6 leading-tight font-headline tracking-tight">
+                Your Financial Future <br className="hidden sm:block" />
+                <span className="gradient-text-primary italic font-normal">Starts Now</span>
+              </h1>
+              
+              <p className="font-body-lg text-sm sm:text-base lg:text-lg text-slate-text mb-8 sm:mb-10 max-w-2xl mx-auto sm:mx-0 leading-relaxed">
+                Professional Stock Market Research, Trading Insights, and Investment Strategies Designed For Consistent Growth in a complex financial landscape.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 max-w-md sm:max-w-none mx-auto sm:mx-0">
+                <MotionLink
+                  href="/contact"
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className="gradient-bg-primary text-background font-label-md text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-full hover:shadow-[0_0_20px_rgba(78,222,163,0.5)] transition-all-slow flex items-center justify-center gap-2 font-bold focus-ring cursor-pointer"
+                >
+                  Talk To Our Experts
+                  <span className="material-symbols-outlined text-[18px]">
+                    arrow_forward
+                  </span>
+                </MotionLink>
+                <MotionLink
+                  href="/services"
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className="bg-transparent border border-premium-gold text-premium-gold font-label-md text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-full hover:bg-premium-gold/10 transition-all-slow flex items-center justify-center gap-2 font-bold focus-ring cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-[18px]">
+                    explore
+                  </span>
+                  Explore Services
+                </MotionLink>
+              </div>
             </div>
-            
-            <h1 className="font-display-lg text-4xl md:text-6xl font-normal text-on-surface mb-6 leading-tight font-headline tracking-tight">
-              Your Financial Future <br className="hidden md:block" />
-              <span className="gradient-text-primary italic font-normal">Starts Now</span>
-            </h1>
-            
-            <p className="font-body-lg text-body-lg text-slate-text mb-10 max-w-2xl">
-              Professional Stock Market Research, Trading Insights, and Investment Strategies Designed For Consistent Growth in a complex financial landscape.
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-4">
-              <MotionLink
-                href="/contact"
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="gradient-bg-primary text-background font-label-md text-label-md px-8 py-4 rounded-full hover:shadow-[0_0_20px_rgba(78,222,163,0.5)] transition-all-slow flex items-center gap-2 font-bold focus-ring cursor-pointer"
-              >
-                Talk To Our Experts
-                <span className="material-symbols-outlined text-[18px]">
-                  arrow_forward
-                </span>
-              </MotionLink>
-              <MotionLink
-                href="/services"
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="bg-transparent border border-premium-gold text-premium-gold font-label-md text-label-md px-8 py-4 rounded-full hover:bg-premium-gold/10 transition-all-slow flex items-center gap-2 font-bold focus-ring cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-[18px]">
-                  play_circle
-                </span>
-                How We Work
-              </MotionLink>
+
+            {/* Hero Right Graphic Card (Live Nifty Card across all viewports) */}
+            <div className="lg:col-span-5 xl:col-span-4 w-full flex items-center justify-center relative mt-4 lg:mt-0">
+              <NiftyLiveCard />
             </div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1,
-                    delayChildren: 0.2
-                  }
-                }
-              }}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="mt-16 flex flex-wrap gap-8 md:gap-12 pt-8 border-t border-elegant"
-            >
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 12 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } }
-                }}
-                className="flex flex-col gap-1"
-              >
-                <span className="font-data-mono text-data-mono text-primary text-2xl font-bold">
-                  10K+
-                </span>
-                <span className="font-label-md text-label-md text-slate-text">
-                  Active Clients
-                </span>
-              </motion.div>
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 12 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } }
-                }}
-                className="flex flex-col gap-1"
-              >
-                <span className="font-data-mono text-data-mono text-primary text-2xl font-bold">
-                  98%
-                </span>
-                <span className="font-label-md text-label-md text-slate-text">
-                  Accuracy Rate
-                </span>
-              </motion.div>
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 12 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } }
-                }}
-                className="flex flex-col gap-1"
-              >
-                <span className="font-data-mono text-data-mono text-primary text-2xl font-bold">
-                  24/7
-                </span>
-                <span className="font-label-md text-label-md text-slate-text">
-                  Expert Support
-                </span>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Hero Right Graphic Card */}
-          <div className="hidden md:flex md:col-span-4 items-center justify-center relative">
-            <NiftyLiveCard />
           </div>
         </div>
       </motion.section>
@@ -250,13 +192,13 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="relative px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
+        className="relative px-margin-mobile md:px-margin-desktop py-14 sm:py-20 max-w-container-max mx-auto before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
       >
-        <div className="text-center mb-16">
-          <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block font-semibold">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="font-label-md text-xs sm:text-sm text-primary tracking-widest uppercase mb-2 block font-semibold">
             Our Process
           </span>
-          <h2 className="font-headline-lg text-3xl md:text-5xl font-normal text-on-surface font-headline tracking-tight">
+          <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-5xl font-normal text-on-surface font-headline tracking-tight">
             Get Our Service In <span className="italic gradient-text-primary">4 Steps</span>
           </h2>
         </div>
@@ -274,7 +216,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {/* Step 1 */}
           <motion.div
@@ -289,21 +231,21 @@ export default function Home() {
               boxShadow: "inset 0 1.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.4)"
             }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            className="bg-[#171717] p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
+            className="bg-[#171717] p-6 sm:p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
           >
-            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-sm px-4 py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-xs sm:text-sm px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
               01
             </div>
-            <div className="w-14 h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-              <span className="material-symbols-outlined text-4xl text-primary">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-105 transition-transform duration-300">
+              <span className="material-symbols-outlined text-3xl sm:text-4xl text-primary">
                 contact_support
               </span>
             </div>
-            <h3 className="font-headline-md text-lg font-bold text-on-surface mb-2 font-headline">
+            <h3 className="font-headline-md text-base sm:text-lg font-bold text-on-surface mb-2 font-headline">
               Contact Us
             </h3>
-            <p className="font-body-md text-body-md text-slate-text">
-              First Step of Process
+            <p className="font-body-md text-sm sm:text-base text-slate-text">
+              Reach out to our advisory desk for personalized market orientation.
             </p>
           </motion.div>
 
@@ -320,21 +262,21 @@ export default function Home() {
               boxShadow: "inset 0 1.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.4)"
             }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            className="bg-[#171717] p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
+            className="bg-[#171717] p-6 sm:p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
           >
-            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-sm px-4 py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-xs sm:text-sm px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
               02
             </div>
-            <div className="w-14 h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-              <span className="material-symbols-outlined text-4xl text-primary">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-105 transition-transform duration-300">
+              <span className="material-symbols-outlined text-3xl sm:text-4xl text-primary">
                 strategy
               </span>
             </div>
-            <h3 className="font-headline-md text-lg font-bold text-on-surface mb-2 font-headline">
+            <h3 className="font-headline-md text-base sm:text-lg font-bold text-on-surface mb-2 font-headline">
               Investment Strategy
             </h3>
-            <p className="font-body-md text-body-md text-slate-text">
-              Second Step of Process
+            <p className="font-body-md text-sm sm:text-base text-slate-text">
+              Select the strategy plan tailored to your capital and risk tolerance.
             </p>
           </motion.div>
 
@@ -351,21 +293,21 @@ export default function Home() {
               boxShadow: "inset 0 1.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.4)"
             }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            className="bg-[#171717] p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
+            className="bg-[#171717] p-6 sm:p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
           >
-            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-sm px-4 py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-xs sm:text-sm px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
               03
             </div>
-            <div className="w-14 h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-              <span className="material-symbols-outlined text-4xl text-primary">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-105 transition-transform duration-300">
+              <span className="material-symbols-outlined text-3xl sm:text-4xl text-primary">
                 model_training
               </span>
             </div>
-            <h3 className="font-headline-md text-lg font-bold text-on-surface mb-2 font-headline">
-              Follow our guidance
+            <h3 className="font-headline-md text-base sm:text-lg font-bold text-on-surface mb-2 font-headline">
+              Follow Our Guidance
             </h3>
-            <p className="font-body-md text-body-md text-slate-text">
-              Third Step of Process
+            <p className="font-body-md text-sm sm:text-base text-slate-text">
+              Receive instant real-time market recommendations and entry/exit levels.
             </p>
           </motion.div>
 
@@ -382,21 +324,21 @@ export default function Home() {
               boxShadow: "inset 0 1.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.4)"
             }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            className="bg-[#171717] p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
+            className="bg-[#171717] p-6 sm:p-8 rounded-2xl relative overflow-visible group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col"
           >
-            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-sm px-4 py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-0 right-0 bg-[#070707] text-premium-gold border-b border-l border-white/10 font-data-mono text-xs sm:text-sm px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-bl-xl font-bold shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)]">
               04
             </div>
-            <div className="w-14 h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-              <span className="material-symbols-outlined text-4xl text-primary">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-105 transition-transform duration-300">
+              <span className="material-symbols-outlined text-3xl sm:text-4xl text-primary">
                 insights
               </span>
             </div>
-            <h3 className="font-headline-md text-lg font-bold text-on-surface mb-2 font-headline">
-              Start Investing
+            <h3 className="font-headline-md text-base sm:text-lg font-bold text-on-surface mb-2 font-headline">
+              Grow Your Capital
             </h3>
-            <p className="font-body-md text-body-md text-slate-text">
-              Four Step of Process
+            <p className="font-body-md text-sm sm:text-base text-slate-text">
+              Execute disciplined trades to accomplish your long-term financial milestones.
             </p>
           </motion.div>
         </motion.div>
@@ -408,69 +350,72 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="relative px-margin-mobile md:px-margin-desktop py-20 bg-surface-container-low before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-[''] after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-primary/20 after:to-transparent after:content-['']"
+        className="relative px-margin-mobile md:px-margin-desktop py-14 sm:py-20 bg-surface-container-low before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-[''] after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-primary/20 after:to-transparent after:content-['']"
       >
-        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div>
-            <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block font-semibold">
+            <span className="font-label-md text-xs sm:text-sm text-primary tracking-widest uppercase mb-2 block font-semibold">
               Why Choose Us
             </span>
-            <h2 className="font-headline-lg text-3xl md:text-5xl font-normal text-on-surface mb-6 font-headline tracking-tight">
+            <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-5xl font-normal text-on-surface mb-5 font-headline tracking-tight">
               Our <span className="italic gradient-text-primary">Advantages</span>
             </h2>
-            <p className="font-body-md text-body-md text-slate-text mb-10 leading-relaxed">
-              We help our clients to adhere to the money management as well as risk management principles, to make them accomplish their financial goals. Our analysts utilize the trend following strategies in a sophisticated manner to facilitate our clients grab the profits.
+            <p className="font-body-md text-sm sm:text-base text-slate-text mb-8 leading-relaxed">
+              We help our clients adhere to strict money management and risk protocols. Our analysts utilize disciplined trend-following strategies to capture high-probability market opportunities.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
-                  <span className="material-symbols-outlined">timer</span>
+                <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
+                  <span className="material-symbols-outlined text-xl">timer</span>
                 </div>
                 <div>
-                  <h4 className="font-headline-md text-body-lg font-semibold text-on-surface font-headline">
-                    10+ Years of experience
+                  <h4 className="font-headline-md text-sm sm:text-base font-semibold text-on-surface font-headline">
+                    10+ Years Experience
                   </h4>
+                  <p className="text-xs text-slate-text mt-0.5">Proven market resilience</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
-                  <span className="material-symbols-outlined">workspace_premium</span>
+                <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
+                  <span className="material-symbols-outlined text-xl">workspace_premium</span>
                 </div>
                 <div>
-                  <h4 className="font-headline-md text-body-lg font-semibold text-on-surface font-headline">
-                    Modern &amp; Expert trading
+                  <h4 className="font-headline-md text-sm sm:text-base font-semibold text-on-surface font-headline">
+                    SEBI Reg. Research
                   </h4>
+                  <p className="text-xs text-slate-text mt-0.5">INH000025300 compliance</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
-                  <span className="material-symbols-outlined">trending_up</span>
+                <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
+                  <span className="material-symbols-outlined text-xl">trending_up</span>
                 </div>
                 <div>
-                  <h4 className="font-headline-md text-body-lg font-semibold text-on-surface font-headline">
-                    Tech Growth &amp; Innovation
+                  <h4 className="font-headline-md text-sm sm:text-base font-semibold text-on-surface font-headline">
+                    Data-Driven Edge
                   </h4>
+                  <p className="text-xs text-slate-text mt-0.5">Quantitative technical setups</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
-                  <span className="material-symbols-outlined">support_agent</span>
+                <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
+                  <span className="material-symbols-outlined text-xl">support_agent</span>
                 </div>
                 <div>
-                  <h4 className="font-headline-md text-body-lg font-semibold text-on-surface font-headline">
-                    Comprehensive Support
+                  <h4 className="font-headline-md text-sm sm:text-base font-semibold text-on-surface font-headline">
+                    Dedicated Support
                   </h4>
+                  <p className="text-xs text-slate-text mt-0.5">Continuous analyst assistance</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden glass-panel aspect-video relative flex items-center justify-center bg-surface-container-high/50 border border-elegant">
-            <span className="material-symbols-outlined text-6xl text-slate-text/50">image</span>
+          <div className="rounded-2xl overflow-hidden glass-panel aspect-[16/10] sm:aspect-video relative flex items-center justify-center bg-surface-container-high/50 border border-elegant shadow-2xl">
             <div
               className="absolute inset-0 bg-cover bg-center opacity-40 transition-all duration-500 hover:scale-105"
               style={{
@@ -488,29 +433,29 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto"
+        className="px-margin-mobile md:px-margin-desktop py-14 sm:py-20 max-w-container-max mx-auto"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-          <div className="md:col-span-2">
-            <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block font-semibold">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-2">
+            <span className="font-label-md text-xs sm:text-sm text-primary tracking-widest uppercase mb-2 block font-semibold">
               Our Mission
             </span>
-            <h2 className="font-headline-lg text-2xl md:text-4xl font-normal text-on-surface mb-4 leading-tight font-headline tracking-tight">
-              We Come To <span className="italic gradient-text-primary">Taking Care</span> Of Your Investment
+            <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-normal text-on-surface mb-4 leading-tight font-headline tracking-tight">
+              We Come To <span className="italic gradient-text-primary">Protect &amp; Grow</span> Your Investment
             </h2>
-            <p className="font-body-md text-body-md text-slate-text leading-relaxed">
-              Our research team is committed to providing premium market intelligence. Every signal is supported by meticulous technical and fundamental analysis, ensuring high accuracy. Our clients consistently achieve financial stability and wealth growth.
+            <p className="font-body-md text-sm sm:text-base text-slate-text leading-relaxed">
+              Our research team is committed to providing premium institutional market intelligence. Every recommendation is supported by rigorous technical and risk-reward modeling, ensuring superior execution for retail and HNI investors.
             </p>
           </div>
-          <div className="md:col-span-1 glass-panel p-6 rounded-2xl flex flex-col justify-center border border-elegant bg-gradient-to-br from-primary/10 to-transparent">
-            <span className="material-symbols-outlined text-primary text-5xl mb-4">
+          <div className="lg:col-span-1 glass-panel p-6 sm:p-7 rounded-2xl flex flex-col justify-center border border-elegant bg-gradient-to-br from-primary/10 to-transparent shadow-xl">
+            <span className="material-symbols-outlined text-primary text-4xl sm:text-5xl mb-3" style={{ fontVariationSettings: "'FILL' 1" }}>
               verified_user
             </span>
             <h4 className="font-headline-md text-lg font-bold text-on-surface mb-2 font-headline">
-              Secure Advisory
+              SEBI Compliant Advisory
             </h4>
-            <p className="text-xs text-slate-text">
-              Fully compliant research models protecting investor capital.
+            <p className="text-xs sm:text-sm text-slate-text leading-relaxed">
+              Strict compliance frameworks and ethical research protocols protecting investor capital.
             </p>
           </div>
         </div>

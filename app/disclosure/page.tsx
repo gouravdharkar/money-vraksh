@@ -104,41 +104,60 @@ export default function Disclosure() {
   ];
 
   return (
-    <div className="relative w-full pt-[80px] md:pt-[100px]">
+    <div className="relative w-full pt-[100px] sm:pt-[120px] pb-24">
       {/* Light Leak backdrop */}
       <div className="light-leak-primary top-[10%] left-[-200px] opacity-40" />
 
-      <main className="flex-grow px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 pb-20">
+      <main className="flex-grow px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
         {/* Warning Banner */}
         <motion.div 
           style={{ boxShadow: cardShadow }}
-          className="bg-[#171717] border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 border-l-4 border-l-premium-gold rounded-xl p-6 mb-8 mt-6"
+          className="bg-[#171717] border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 border-l-4 border-l-premium-gold rounded-xl p-5 sm:p-6 mb-8"
         >
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-3 sm:gap-4">
             <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
               <span className="material-symbols-outlined text-premium-gold text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>
                 warning
               </span>
             </div>
             <div>
-              <h2 className="font-headline-md text-base font-bold text-premium-gold mb-2 font-headline uppercase tracking-wider">
+              <h2 className="font-headline-md text-sm sm:text-base font-bold text-premium-gold mb-1 sm:mb-2 font-headline uppercase tracking-wider">
                 Important Regulatory Notice
               </h2>
-              <p className="font-body-lg text-body-md text-on-surface leading-relaxed">
-                Investment in securities markets are subject to market risks. Read all related documents carefully before investing. SEBI Registration No: <span className="font-data-mono text-data-mono text-on-surface bg-surface-container-high px-2 py-1 rounded font-bold">INH000025300</span>.
+              <p className="font-body-lg text-xs sm:text-sm text-on-surface leading-relaxed">
+                Investment in securities markets are subject to market risks. Read all related documents carefully before investing. SEBI Registration No: <span className="font-data-mono text-data-mono text-on-surface bg-surface-container-high px-2 py-0.5 rounded font-bold">INH000025300</span>.
               </p>
             </div>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-          {/* Sidebar Navigation */}
+        {/* Mobile Quick-Jump Pills */}
+        <div className="lg:hidden mb-8 overflow-x-auto pb-2 -mx-margin-mobile px-margin-mobile flex gap-2 no-scrollbar">
+          {sections.map((sec) => (
+            <button
+              key={sec.id}
+              onClick={() => {
+                const element = document.getElementById(sec.id);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="px-3.5 py-2 rounded-xl bg-[#171717] border border-white/10 text-slate-text hover:text-primary text-xs font-semibold whitespace-nowrap focus-ring shrink-0 flex items-center gap-1.5 cursor-pointer shadow-sm"
+            >
+              <span className="material-symbols-outlined text-sm text-primary">{sec.icon}</span>
+              {sec.title}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Sidebar Navigation (Desktop) */}
           <div className="lg:col-span-3 hidden lg:block">
             <div 
               style={{ boxShadow: cardShadow }}
               className="sticky top-[120px] bg-[#171717] rounded-2xl p-4 border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
             >
-              <nav className="flex flex-col space-y-2">
+              <nav className="flex flex-col space-y-1.5">
                 {sections.map((sec) => (
                   <button
                     key={sec.id}
@@ -148,7 +167,7 @@ export default function Disclosure() {
                         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }
                     }}
-                    className="text-left w-full text-on-surface-variant hover:text-primary hover:bg-white/5 px-4 py-3 border-l-2 border-transparent hover:border-primary rounded-r-lg font-label-md text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer focus-ring"
+                    className="text-left w-full text-on-surface-variant hover:text-primary hover:bg-white/5 px-3.5 py-2.5 border-l-2 border-transparent hover:border-primary rounded-r-lg font-label-md text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer focus-ring"
                   >
                     {sec.title}
                   </button>
@@ -158,8 +177,8 @@ export default function Disclosure() {
           </div>
 
           {/* Content Cards */}
-          <div className="lg:col-span-9 space-y-gutter">
-            <h1 className="font-display-lg text-3xl md:text-5xl font-normal text-primary mb-8 lg:hidden font-headline tracking-tight">
+          <div className="lg:col-span-9 space-y-6">
+            <h1 className="font-display-lg text-3xl sm:text-4xl font-normal text-primary mb-6 lg:hidden font-headline tracking-tight">
               Legal <span className="italic">Disclosures</span>
             </h1>
 
@@ -170,15 +189,15 @@ export default function Disclosure() {
                 whileHover={{ y: -2 }}
                 style={{ boxShadow: cardShadow }}
                 transition={springTransition}
-                className="bg-[#171717] rounded-2xl p-6 md:p-8 scroll-mt-28 border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 relative overflow-visible"
+                className="bg-[#171717] rounded-2xl p-6 sm:p-8 scroll-mt-24 sm:scroll-mt-28 border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 relative overflow-visible"
               >
-                <h2 className="font-headline-lg text-xl md:text-2xl font-normal text-on-surface mb-6 flex items-center gap-3 font-headline tracking-tight">
+                <h2 className="font-headline-lg text-lg sm:text-xl md:text-2xl font-normal text-on-surface mb-5 sm:mb-6 flex items-center gap-3 font-headline tracking-tight">
                   <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-primary">{sec.icon}</span>
                   </div>
                   {sec.title}
                 </h2>
-                <div className="prose prose-invert max-w-none text-slate-text font-body-md text-body-md leading-relaxed pl-1">
+                <div className="prose prose-invert max-w-none text-slate-text font-body-md text-xs sm:text-sm md:text-base leading-relaxed pl-1">
                   {sec.content}
                 </div>
               </motion.section>

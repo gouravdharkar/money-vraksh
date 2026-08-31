@@ -28,6 +28,7 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
+    { name: "Payment", href: "/payment" },
     { name: "Contact Us", href: "/contact" },
     { name: "Disclosure", href: "/disclosure" },
   ];
@@ -54,17 +55,17 @@ export default function Navbar() {
           MoneyVraksh
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Links (Visible on Large Screens) */}
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-all duration-200 font-body-md text-body-md focus-ring rounded-sm ${
+                className={`transition-all duration-200 font-body-md text-sm xl:text-base focus-ring rounded-sm py-1 ${
                   isActive
-                    ? "text-primary font-bold border-b-2 border-primary pb-1"
+                    ? "text-primary font-bold border-b-2 border-primary"
                     : "text-on-surface-variant hover:text-primary"
                 }`}
               >
@@ -75,15 +76,16 @@ export default function Navbar() {
         </div>
 
         {/* Actions (Theme toggle & Get Started) */}
-        <div className="flex items-center gap-4 relative">
+        <div className="flex items-center gap-2 sm:gap-4 relative">
           {/* Theme Dropdown Toggle */}
           <div className="relative">
             <button
               onClick={() => setThemeMenuOpen(!themeMenuOpen)}
-              className="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high/50 text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer focus-ring"
+              className="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high/50 text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer focus-ring min-w-[40px] min-h-[40px]"
               title="Switch Theme"
+              aria-label="Switch Theme"
             >
-              <span className="material-symbols-outlined">
+              <span className="material-symbols-outlined text-xl">
                 {theme === "midnight" ? "dark_mode" : theme === "truedark" ? "brightness_3" : "light_mode"}
               </span>
             </button>
@@ -94,17 +96,17 @@ export default function Navbar() {
                   className="fixed inset-0 z-40"
                   onClick={() => setThemeMenuOpen(false)}
                 />
-                <div className="absolute right-0 mt-2 w-40 glass-panel rounded-xl py-2 z-50 shadow-2xl animate-fade-in">
+                <div className="absolute right-0 mt-2 w-44 glass-panel rounded-xl py-2 z-50 shadow-2xl animate-fade-in border border-white/10">
                   <button
                     onClick={() => {
                       setTheme("midnight");
                       setThemeMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer focus-ring rounded-md ${
+                    className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2.5 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer focus-ring rounded-md ${
                       theme === "midnight" ? "text-primary font-bold" : "text-on-surface-variant"
                     }`}
                   >
-                    <span className="material-symbols-outlined text-sm">dark_mode</span>
+                    <span className="material-symbols-outlined text-base">dark_mode</span>
                     Midnight
                   </button>
                   <button
@@ -112,11 +114,11 @@ export default function Navbar() {
                       setTheme("truedark");
                       setThemeMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer focus-ring rounded-md ${
+                    className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2.5 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer focus-ring rounded-md ${
                       theme === "truedark" ? "text-primary font-bold" : "text-on-surface-variant"
                     }`}
                   >
-                    <span className="material-symbols-outlined text-sm">brightness_3</span>
+                    <span className="material-symbols-outlined text-base">brightness_3</span>
                     True Dark
                   </button>
                   <button
@@ -124,11 +126,11 @@ export default function Navbar() {
                       setTheme("light");
                       setThemeMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer focus-ring rounded-md ${
+                    className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2.5 hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer focus-ring rounded-md ${
                       theme === "light" ? "text-primary font-bold" : "text-on-surface-variant"
                     }`}
                   >
-                    <span className="material-symbols-outlined text-sm">light_mode</span>
+                    <span className="material-symbols-outlined text-base">light_mode</span>
                     Light
                   </button>
                 </div>
@@ -138,19 +140,20 @@ export default function Navbar() {
 
           <MotionLink
             href="/contact"
-            className="hidden md:block gradient-bg-primary text-background font-label-md text-label-md px-6 py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring"
+            className="hidden sm:block gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-5 lg:px-6 py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0"
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             Get Started
           </MotionLink>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile & Tablet Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-on-surface p-2 hover:bg-surface-container-high/50 rounded-full transition-colors cursor-pointer focus-ring"
+            className="lg:hidden text-on-surface p-2 hover:bg-surface-container-high/50 rounded-full transition-colors cursor-pointer focus-ring min-w-[40px] min-h-[40px] flex items-center justify-center"
+            aria-label="Toggle navigation menu"
           >
-            <span className="material-symbols-outlined">
+            <span className="material-symbols-outlined text-2xl">
               {mobileMenuOpen ? "close" : "menu"}
             </span>
           </button>
@@ -161,10 +164,10 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <>
           <div
-            className="fixed inset-0 top-[60px] bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 top-[64px] bg-black/70 backdrop-blur-md z-40 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="absolute top-[60px] left-0 w-full glass-panel shadow-2xl py-6 px-6 z-50 flex flex-col gap-4 animate-slide-down md:hidden">
+          <div className="absolute top-[64px] left-0 w-full glass-panel shadow-2xl py-6 px-6 z-50 flex flex-col gap-3 animate-slide-down lg:hidden max-h-[calc(100dvh-70px)] overflow-y-auto border-b border-primary/20">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -172,8 +175,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-lg font-body-md py-2 transition-all focus-ring rounded-sm ${
-                    isActive ? "text-primary font-bold border-l-4 border-primary pl-3" : "text-on-surface-variant hover:text-primary"
+                  className={`text-base font-body-md py-3 px-3 rounded-lg transition-all focus-ring min-h-[44px] flex items-center ${
+                    isActive
+                      ? "text-primary font-bold bg-primary/10 border-l-4 border-primary pl-4"
+                      : "text-on-surface-variant hover:text-primary hover:bg-white/[0.02]"
                   }`}
                 >
                   {link.name}
@@ -183,7 +188,7 @@ export default function Navbar() {
             <MotionLink
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center gradient-bg-primary text-background font-label-md text-label-md py-3 rounded-xl mt-2 font-bold shadow-lg focus-ring"
+              className="w-full text-center gradient-bg-primary text-background font-label-md text-sm py-3.5 rounded-xl mt-3 font-bold shadow-lg focus-ring min-h-[44px] flex items-center justify-center"
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
