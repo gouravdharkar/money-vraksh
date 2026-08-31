@@ -24,7 +24,7 @@ export default function CategoryCard({ category, index }: CategoryCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.45, delay: index * 0.12 }}
     >
       <Link href={`/services/${category.id}`} className="block group h-full focus-ring rounded-2xl">

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { SubService, ACCENT_THEMES } from '../types';
 import RiskBadge from './RiskBadge';
 import PriceCard from './PriceCard';
-import KeyMetricsBar from './KeyMetricsBar';
 import ServiceTabs from './ServiceTabs';
 import { serviceCategories } from '../data';
 
@@ -25,15 +24,6 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const bgAccent = theme.bg;
   const glowBgClass = theme.glow;
 
-  // Alternate background blur alignments
-  const isLeftGlow = ['equity-cash', 'index-futures', 'index-options'].includes(service.category);
-
-  const metrics = [
-    { icon: 'payments', label: 'Min Investment', value: service.minimumInvestment },
-    { icon: 'repeat', label: 'Frequency', value: service.recommendationFrequency },
-    { icon: 'campaign', label: 'Mode', value: service.modeOfRecommendation },
-    { icon: 'support_agent', label: 'Follow Up', value: service.followUp },
-  ];
 
   const tabs = [
     {
@@ -145,25 +135,6 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             Investment Plans
           </h3>
           <PriceCard service={service} />
-          <div className="rounded-xl border border-surface-container/50 bg-surface-container-low/30 p-5">
-            <h4 className="font-headline-md text-sm font-bold text-on-surface mb-4 font-headline">
-              What&apos;s Included
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3">
-                <span className={`material-symbols-outlined text-sm ${textAccent}`}>check</span>
-                <span className="font-body-md text-sm text-on-surface-variant">{service.recommendationFrequency}</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className={`material-symbols-outlined text-sm ${textAccent}`}>check</span>
-                <span className="font-body-md text-sm text-on-surface-variant">Delivery via {service.modeOfRecommendation}</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className={`material-symbols-outlined text-sm ${textAccent}`}>check</span>
-                <span className="font-body-md text-sm text-on-surface-variant">Follow-up: {service.followUp}</span>
-              </li>
-            </ul>
-          </div>
         </div>
       ),
     },
@@ -181,9 +152,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
 
   return (
     <div className="relative">
-      <div className={`absolute inset-0 bg-gradient-to-b ${category.gradient} pointer-events-none`} />
-      <div className={`absolute top-[-200px] ${isLeftGlow ? 'left-[-200px]' : 'right-[-200px]'} w-[500px] h-[500px] rounded-full opacity-[0.03] ${glowBgClass}`}
-        style={{ filter: 'blur(120px)' }} />
+      <div className="light-leak-primary top-[-100px] left-[-200px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Breadcrumb */}
@@ -211,7 +180,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             </span>
           </motion.div>
 
-          <motion.h1 variants={fadeUp} className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold text-on-surface mb-4 leading-[1.1] tracking-tight">
+          <motion.h1 variants={fadeUp} className="font-headline text-3xl md:text-5xl lg:text-6xl font-normal text-on-surface mb-4 leading-[1.1] tracking-tight">
             {service.name}
           </motion.h1>
 
@@ -265,16 +234,6 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           </div>
         </motion.div>
 
-        {/* Key Metrics */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
-          className="mb-12"
-        >
-          <KeyMetricsBar metrics={metrics} />
-        </motion.div>
 
         {/* Tabbed Content */}
         <motion.div
@@ -297,8 +256,8 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           transition={{ duration: 0.45 }}
           className="rounded-2xl border border-surface-container/50 bg-surface-container-low/20 p-8 md:p-12 text-center mb-16"
         >
-          <h2 className="font-headline-md text-2xl font-bold text-on-surface mb-3 font-headline">
-            Ready to Get Started with <span className={textAccent}>{service.name}</span>?
+          <h2 className="font-headline-lg text-2xl md:text-4xl font-normal text-on-surface mb-3 font-headline tracking-tight">
+            Ready to Get Started with <span className={`italic ${textAccent}`}>{service.name}</span>?
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant/70 max-w-xl mx-auto mb-8">
             Join thousands of traders who trust our research. Pick a plan that fits your goals.

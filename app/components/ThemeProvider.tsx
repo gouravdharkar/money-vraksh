@@ -12,14 +12,15 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("midnight");
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("money-vraksh-theme") as Theme;
-    if (savedTheme && ["midnight", "truedark", "light"].includes(savedTheme)) {
-      setThemeState(savedTheme);
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("money-vraksh-theme") as Theme;
+      if (savedTheme && ["midnight", "truedark", "light"].includes(savedTheme)) {
+        return savedTheme;
+      }
     }
-  }, []);
+    return "midnight";
+  });
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);

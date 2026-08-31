@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     // --- Resend integration disabled until API key is provided ---
     // const data = await resend.emails.send({
     //   from: "MoneyVraksh <onboarding@resend.dev>",
-    //   to: "contact@moneyvraksh.com",
+    //   to: "dharkargourav@gmail.com",
     //   subject: `New Contact Form Submission from ${fullName}`,
     //   html: `
     //     <h2>New Contact Form Submission</h2>

@@ -8,7 +8,7 @@ const MotionLink = motion.create(Link);
 
 export default function ServicesPage() {
   return (
-    <div className="relative w-full overflow-x-hidden min-h-screen pt-[120px] pb-24">
+    <div className="relative w-full pt-[120px] pb-24">
       <div className="light-leak-primary top-[-100px] left-[-100px]" />
       <div className="light-leak-secondary bottom-[-100px] right-[-100px]" />
 
@@ -20,9 +20,9 @@ export default function ServicesPage() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center md:text-left"
         >
-          <h1 className="font-headline text-4xl md:text-6xl font-bold text-on-surface mb-6 mt-6 leading-tight">
-            <span className="font-normal">Precision</span> Strategies for <br className="hidden md:block" />
-            <span className="gradient-text-primary">Every Market Condition</span>
+          <h1 className="font-headline text-4xl md:text-6xl font-normal text-on-surface mb-6 mt-6 leading-tight tracking-tight">
+            <span className="italic">Precision</span> Strategies for <br className="hidden md:block" />
+            <span className="gradient-text-primary italic">Every Market Condition</span>
           </h1>
           <p className="font-body-lg text-body-lg text-slate-text max-w-2xl mx-auto md:mx-0 mb-6 leading-relaxed">
             Institutional-grade research and actionable insights tailored to your investment style.
@@ -73,8 +73,8 @@ export default function ServicesPage() {
           transition={{ duration: 0.5 }}
           className="text-center py-12"
         >
-          <h2 className="font-headline-md text-2xl font-bold text-on-surface mb-4 font-headline">
-            Not Sure Which Service Fits You?
+          <h2 className="font-headline-lg text-2xl md:text-4xl font-normal text-on-surface mb-4 font-headline tracking-tight">
+            Not Sure Which Service <span className="italic gradient-text-primary">Fits You</span>?
           </h2>
           <p className="font-body-lg text-body-lg text-slate-text max-w-xl mx-auto mb-8">
             Schedule a free consultation call and our experts will help you choose the right strategy.

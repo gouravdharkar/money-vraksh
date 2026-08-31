@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Sentient';
-  src: url('/Sentient-Bold.woff2') format('woff2'),
-       url('/Sentient-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   /* Default to Midnight theme values */
   --bg-midnight: #000000;
@@ -29,10 +20,10 @@
   --on-primary: #003824;
   --inverse-primary: #006c49;
   --error: #ffb4ab;
-  --font-display: 'Sentient', var(--font-jakarta), sans-serif;
-  --font-headline: 'Sentient', var(--font-jakarta), sans-serif;
-  --font-body: var(--font-jakarta);
-  --font-mono: var(--font-jakarta);
+  --font-display: var(--font-instrument), Georgia, serif;
+  --font-headline: var(--font-instrument), Georgia, serif;
+  --font-body: var(--font-jakarta), sans-serif;
+  --font-mono: var(--font-jakarta), sans-serif;
 }
 
 /* Explicit Themes */
@@ -136,7 +127,10 @@
   --spacing-gutter: 24px;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 body {
   background-color: var(--bg-midnight);
@@ -144,6 +138,8 @@ body {
   font-family: var(--font-jakarta);
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  min-height: 100vh;
 }
 
 .focus-ring {

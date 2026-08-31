@@ -15,7 +15,6 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
   const borderClass = theme.border;
   const bgAccent = theme.bg;
   const glowBgClass = theme.glow;
-  const gradientClass = theme.gradient;
   const btnBg = theme.btnBg;
 
   // Split subservices into Intraday and Positional
@@ -27,11 +26,8 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
   );
 
   return (
-    <div className="relative w-full overflow-x-hidden min-h-screen pt-[120px] pb-24">
-      {/* Dynamic background gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-b ${gradientClass} pointer-events-none`} />
-      <div className={`absolute top-[-200px] left-[-200px] w-[600px] h-[600px] rounded-full opacity-[0.03] ${glowBgClass}`}
-        style={{ filter: 'blur(120px)' }} />
+    <div className="relative w-full pt-[120px] pb-24">
+      <div className="light-leak-primary top-[-100px] left-[-200px]" />
 
       <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full relative z-10">
         {/* Breadcrumb */}
@@ -63,8 +59,8 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
               <span className={`inline-block px-3 py-1 rounded-lg ${bgAccent} ${textAccent} text-xs font-bold tracking-wider uppercase`}>
                 {category.shortName}
               </span>
-              <h1 className="font-headline text-3xl md:text-5xl font-bold text-on-surface mt-2 leading-tight">
-                {category.name} Strategies
+              <h1 className="font-headline text-3xl md:text-5xl font-normal text-on-surface mt-2 leading-tight tracking-tight">
+                {category.name} <span className="italic">Strategies</span>
               </h1>
             </div>
           </div>
@@ -80,8 +76,8 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
               <div className="flex items-center gap-3">
                 <div className={`h-8 w-1 ${glowBgClass} rounded-full`} />
                 <div>
-                  <h2 className="font-headline-lg text-2xl font-bold text-on-surface font-headline">
-                    Intraday Trading Calls
+                  <h2 className="font-headline-lg text-2xl md:text-3xl font-normal text-on-surface font-headline tracking-tight">
+                    Intraday <span className="italic">Trading Calls</span>
                   </h2>
                   <p className="text-xs text-slate-text mt-1">Same-day positions with strict target entries and capital safety rules</p>
                 </div>
@@ -106,8 +102,8 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
               <div className="flex items-center gap-3">
                 <div className={`h-8 w-1 ${glowBgClass} rounded-full`} />
                 <div>
-                  <h2 className="font-headline-lg text-2xl font-bold text-on-surface font-headline">
-                    Positional &amp; Holding Calls
+                  <h2 className="font-headline-lg text-2xl md:text-3xl font-normal text-on-surface font-headline tracking-tight">
+                    Positional &amp; <span className="italic">Holding Calls</span>
                   </h2>
                   <p className="text-xs text-slate-text mt-1">Multi-day swings and investment suggestions for progressive capital growth</p>
                 </div>
@@ -133,8 +129,8 @@ export default function CategoryPageClient({ category }: CategoryPageClientProps
           transition={{ duration: 0.5 }}
           className="glass-panel rounded-2xl p-8 md:p-12 border border-elegant text-center"
         >
-          <h2 className="font-headline-md text-2xl font-bold text-on-surface mb-4 font-headline">
-            Need Help Choosing a {category.name} Service?
+          <h2 className="font-headline-lg text-2xl md:text-4xl font-normal text-on-surface mb-4 font-headline tracking-tight">
+            Need Help Choosing a <span className={`italic ${textAccent}`}>{category.name}</span> Service?
           </h2>
           <p className="font-body-lg text-body-lg text-slate-text max-w-xl mx-auto mb-8">
             Our advisory team will analyze your risk tolerance and find the perfect match.

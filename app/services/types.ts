@@ -83,6 +83,8 @@ export interface ColorTheme {
   btnBg: string;
   primaryHex: string;
   secondaryHex: string;
+  primaryRgba: string;
+  secondaryRgba: string;
   glowRgba: string;
 }
 
@@ -98,6 +100,8 @@ export const ACCENT_THEMES: Record<string, ColorTheme> = {
     btnBg: 'linear-gradient(135deg, #10B981, #059669)',
     primaryHex: '#10B981',
     secondaryHex: '#059669',
+    primaryRgba: 'rgba(16, 185, 129, 0.16)',
+    secondaryRgba: 'rgba(20, 184, 166, 0.10)',
     glowRgba: 'rgba(16, 185, 129, 0.5)',
   },
   amber: {
@@ -111,6 +115,8 @@ export const ACCENT_THEMES: Record<string, ColorTheme> = {
     btnBg: 'linear-gradient(135deg, #F59E0B, #EA580C)',
     primaryHex: '#F59E0B',
     secondaryHex: '#EA580C',
+    primaryRgba: 'rgba(245, 158, 11, 0.16)',
+    secondaryRgba: 'rgba(234, 88, 12, 0.10)',
     glowRgba: 'rgba(245, 158, 11, 0.5)',
   },
   blue: {
@@ -124,6 +130,8 @@ export const ACCENT_THEMES: Record<string, ColorTheme> = {
     btnBg: 'linear-gradient(135deg, #3B82F6, #2563EB)',
     primaryHex: '#3B82F6',
     secondaryHex: '#2563EB',
+    primaryRgba: 'rgba(59, 130, 246, 0.16)',
+    secondaryRgba: 'rgba(6, 182, 212, 0.10)',
     glowRgba: 'rgba(59, 130, 246, 0.5)',
   },
   rose: {
@@ -137,6 +145,8 @@ export const ACCENT_THEMES: Record<string, ColorTheme> = {
     btnBg: 'linear-gradient(135deg, #F43F5E, #E11D48)',
     primaryHex: '#F43F5E',
     secondaryHex: '#E11D48',
+    primaryRgba: 'rgba(244, 63, 94, 0.16)',
+    secondaryRgba: 'rgba(251, 113, 133, 0.10)',
     glowRgba: 'rgba(244, 63, 94, 0.5)',
   },
   violet: {
@@ -150,6 +160,8 @@ export const ACCENT_THEMES: Record<string, ColorTheme> = {
     btnBg: 'linear-gradient(135deg, #8B5CF6, #7C3AED)',
     primaryHex: '#8B5CF6',
     secondaryHex: '#7C3AED',
+    primaryRgba: 'rgba(139, 92, 246, 0.16)',
+    secondaryRgba: 'rgba(168, 85, 247, 0.10)',
     glowRgba: 'rgba(139, 92, 246, 0.5)',
   },
   yellow: {
@@ -163,6 +175,8 @@ export const ACCENT_THEMES: Record<string, ColorTheme> = {
     btnBg: 'linear-gradient(135deg, #EAB308, #CA8A04)',
     primaryHex: '#EAB308',
     secondaryHex: '#CA8A04',
+    primaryRgba: 'rgba(234, 179, 8, 0.16)',
+    secondaryRgba: 'rgba(245, 158, 11, 0.10)',
     glowRgba: 'rgba(234, 179, 8, 0.5)',
   }
 };

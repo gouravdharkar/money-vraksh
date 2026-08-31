@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { AboutSection } from "./components/AboutSection";
+import NiftyLiveCard from "./components/NiftyLiveCard";
 import { motion } from "framer-motion";
 import { serviceCategories } from "./services/data";
 import { ACCENT_THEMES } from "./services/types";
@@ -11,7 +11,7 @@ const MotionLink = motion.create(Link);
 
 export default function Home() {
   return (
-    <div className="relative w-full overflow-x-hidden min-h-screen pt-[80px] md:pt-[100px]">
+    <div className="relative w-full pt-[80px] md:pt-[100px]">
       {/* Ambient Light Leaks */}
       <div className="light-leak-primary top-[-100px] left-[-200px]" />
       <div className="light-leak-secondary top-[20%] right-[-100px]" />
@@ -20,9 +20,8 @@ export default function Home() {
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative px-margin-mobile md:px-margin-desktop py-12 md:py-24 max-w-container-max mx-auto min-h-[750px] flex items-center"
       >
         {/* Background Image Panel */}
@@ -46,9 +45,9 @@ export default function Home() {
               </span>
             </div>
             
-            <h1 className="font-display-lg text-4xl md:text-6xl font-bold text-on-surface mb-6 leading-tight font-headline">
+            <h1 className="font-display-lg text-4xl md:text-6xl font-normal text-on-surface mb-6 leading-tight font-headline tracking-tight">
               Your Financial Future <br className="hidden md:block" />
-              <span className="gradient-text-primary">Starts Now</span>
+              <span className="gradient-text-primary italic font-normal">Starts Now</span>
             </h1>
             
             <p className="font-body-lg text-body-lg text-slate-text mb-10 max-w-2xl">
@@ -144,65 +143,7 @@ export default function Home() {
 
           {/* Hero Right Graphic Card */}
           <div className="hidden md:flex md:col-span-4 items-center justify-center relative">
-            <div className="w-full aspect-[3/4] glass-panel rounded-2xl relative overflow-hidden flex flex-col justify-between p-6 bg-gradient-to-br from-surface-container-high/40 to-background-midnight border border-elegant">
-              <div className="flex justify-between items-start w-full">
-                <div>
-                  <span className="font-label-md text-label-md text-slate-text block mb-1">
-                    NIFTY 50
-                  </span>
-                  <span className="font-data-mono text-data-mono text-on-surface text-2xl font-bold">
-                    22,453.30
-                  </span>
-                </div>
-                <div className="bg-success-emerald/15 text-success-emerald px-2.5 py-1 rounded-lg text-xs font-data-mono flex items-center gap-1 font-bold">
-                  <span className="material-symbols-outlined text-[14px]">
-                    trending_up
-                  </span>
-                  +1.24%
-                </div>
-              </div>
-
-              {/* SVG Sparkline Chart */}
-              <div className="w-full h-32 mt-8 relative">
-                <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 50">
-                  <defs>
-                    <linearGradient id="chart-grad" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(78, 222, 163, 0.4)" />
-                      <stop offset="100%" stopColor="rgba(78, 222, 163, 0)" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M0 50 L0 30 L10 35 L20 20 L30 25 L40 10 L50 15 L60 5 L70 20 L80 10 L90 15 L100 0 L100 50 Z"
-                    fill="url(#chart-grad)"
-                  />
-                  <path
-                    d="M0 30 L10 35 L20 20 L30 25 L40 10 L50 15 L60 5 L70 20 L80 10 L90 15 L100 0"
-                    fill="none"
-                    stroke="#4edea3"
-                    strokeWidth="2"
-                    vectorEffect="non-scaling-stroke"
-                  />
-                </svg>
-              </div>
-
-              <div className="w-full mt-6 pt-6 border-t border-elegant flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/40">
-                    <span className="material-symbols-outlined text-primary">
-                      lightbulb
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-label-md text-label-md text-on-surface font-semibold">
-                      Buy Signal
-                    </p>
-                    <p className="text-xs text-slate-text font-body-md">
-                      Generated 2m ago
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <NiftyLiveCard />
           </div>
         </div>
       </motion.section>
@@ -210,7 +151,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
         <AboutSection />
@@ -220,16 +161,16 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className="px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto"
       >
         <div className="text-center mb-16">
-          <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface mb-4 font-headline">
-            <span>Premium</span> Research Services
+          <h2 className="font-headline-lg text-3xl md:text-5xl font-normal text-on-surface mb-4 font-headline tracking-tight">
+            <span className="italic gradient-text-primary">Premium</span> Research Services
           </h2>
           <p className="font-body-lg text-body-lg text-slate-text max-w-2xl mx-auto">
-            Tailored strategies for every market condition, designed to maximize your portfolio's potential.
+            Tailored strategies for every market condition, designed to maximize your portfolio&apos;s potential.
           </p>
         </div>
 
@@ -307,7 +248,7 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className="relative px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
       >
@@ -315,8 +256,8 @@ export default function Home() {
           <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block font-semibold">
             Our Process
           </span>
-          <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface font-headline">
-            Get Our Service In <span className="font-normal">4 Steps</span>
+          <h2 className="font-headline-lg text-3xl md:text-5xl font-normal text-on-surface font-headline tracking-tight">
+            Get Our Service In <span className="italic gradient-text-primary">4 Steps</span>
           </h2>
         </div>
 
@@ -465,7 +406,7 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className="relative px-margin-mobile md:px-margin-desktop py-20 bg-surface-container-low before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-[''] after:absolute after:bottom-0 after:left-1/4 after:right-1/4 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-primary/20 after:to-transparent after:content-['']"
       >
@@ -474,8 +415,8 @@ export default function Home() {
             <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block font-semibold">
               Why Choose Us
             </span>
-            <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface mb-6 font-headline">
-              Our <span>Advantages</span>
+            <h2 className="font-headline-lg text-3xl md:text-5xl font-normal text-on-surface mb-6 font-headline tracking-tight">
+              Our <span className="italic gradient-text-primary">Advantages</span>
             </h2>
             <p className="font-body-md text-body-md text-slate-text mb-10 leading-relaxed">
               We help our clients to adhere to the money management as well as risk management principles, to make them accomplish their financial goals. Our analysts utilize the trend following strategies in a sophisticated manner to facilitate our clients grab the profits.
@@ -545,7 +486,7 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className="px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto"
       >
@@ -554,8 +495,8 @@ export default function Home() {
             <span className="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block font-semibold">
               Our Mission
             </span>
-            <h2 className="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface mb-4 leading-tight font-headline">
-              We Come To <span>Taking Care</span> Of Your Investment
+            <h2 className="font-headline-lg text-2xl md:text-4xl font-normal text-on-surface mb-4 leading-tight font-headline tracking-tight">
+              We Come To <span className="italic gradient-text-primary">Taking Care</span> Of Your Investment
             </h2>
             <p className="font-body-md text-body-md text-slate-text leading-relaxed">
               Our research team is committed to providing premium market intelligence. Every signal is supported by meticulous technical and fundamental analysis, ensuring high accuracy. Our clients consistently achieve financial stability and wealth growth.

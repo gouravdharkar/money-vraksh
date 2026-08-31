@@ -36,8 +36,8 @@ export function AboutSection() {
             — Know About Us
           </span>
 
-          <h2 className="font-headline-lg text-3xl md:text-4xl font-bold text-on-surface font-headline leading-tight">
-            Money Solutions for all your needs, <span className="font-normal">throughout your life.</span>
+          <h2 className="font-headline-lg text-3xl md:text-5xl font-normal text-on-surface font-headline leading-tight tracking-tight">
+            Money Solutions for all your needs, <span className="italic gradient-text-primary">throughout your life.</span>
           </h2>
 
           <p className="font-body-md text-body-md text-slate-text leading-relaxed">

@@ -24,7 +24,6 @@ export default function PriceCard({ service }: PriceCardProps) {
       {tiers.map((tier, idx) => {
         const isYearly = tier.tier === 'yearly';
         const isHalfYearly = tier.tier === 'halfYearly';
-        const isQuarterly = tier.tier === 'quarterly';
         
         // Custom styling for premium options
         let borderClass = 'border-surface-container/50 hover:border-primary/30';

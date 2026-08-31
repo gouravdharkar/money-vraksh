@@ -104,7 +104,7 @@ export default function Disclosure() {
   ];
 
   return (
-    <div className="relative w-full overflow-x-hidden min-h-screen pt-[80px] md:pt-[100px]">
+    <div className="relative w-full pt-[80px] md:pt-[100px]">
       {/* Light Leak backdrop */}
       <div className="light-leak-primary top-[10%] left-[-200px] opacity-40" />
 
@@ -159,8 +159,8 @@ export default function Disclosure() {
 
           {/* Content Cards */}
           <div className="lg:col-span-9 space-y-gutter">
-            <h1 className="font-display-lg text-3xl md:text-4xl font-bold text-primary mb-8 lg:hidden font-headline">
-              Disclosures
+            <h1 className="font-display-lg text-3xl md:text-5xl font-normal text-primary mb-8 lg:hidden font-headline tracking-tight">
+              Legal <span className="italic">Disclosures</span>
             </h1>
 
             {sections.map((sec) => (
@@ -172,7 +172,7 @@ export default function Disclosure() {
                 transition={springTransition}
                 className="bg-[#171717] rounded-2xl p-6 md:p-8 scroll-mt-28 border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 relative overflow-visible"
               >
-                <h2 className="font-headline-lg text-xl md:text-2xl font-bold text-on-surface mb-6 flex items-center gap-3 font-headline">
+                <h2 className="font-headline-lg text-xl md:text-2xl font-normal text-on-surface mb-6 flex items-center gap-3 font-headline tracking-tight">
                   <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-primary">{sec.icon}</span>
                   </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { showToast } from "../components/Toast";
@@ -99,15 +98,15 @@ export default function Contact() {
   const springTransition = { type: "spring" as const, stiffness: 200, damping: 18 };
 
   return (
-    <div className="relative w-full overflow-x-hidden min-h-screen pt-[120px] pb-24">
+    <div className="relative w-full pt-[120px] pb-24">
       {/* Light Leak Effect */}
       <div className="fixed inset-0 light-leak z-0" />
 
       <main className="flex-grow px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
         {/* Header */}
         <div className="mb-16 text-center md:text-left">
-          <h1 className="font-display-lg text-4xl md:text-6xl font-bold text-on-surface mb-4 font-headline leading-tight">
-            Get in Touch
+          <h1 className="font-display-lg text-4xl md:text-6xl font-normal text-on-surface mb-4 font-headline leading-tight tracking-tight">
+            Get in <span className="italic gradient-text-primary">Touch</span>
           </h1>
           <p className="font-body-lg text-body-lg text-slate-text max-w-2xl leading-relaxed">
             Connect with our experts for personalized financial strategies, compliance inquiries, or general support.
@@ -125,8 +124,8 @@ export default function Contact() {
             transition={springTransition}
             className="md:col-span-7 bg-[#171717] p-8 rounded-2xl relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
           >
-            <h2 className="font-headline-lg text-2xl font-bold mb-8 text-on-surface font-headline">
-              Send us a Message
+            <h2 className="font-headline-lg text-2xl md:text-3xl font-normal mb-8 text-on-surface font-headline tracking-tight">
+              Send us a <span className="italic gradient-text-primary">Message</span>
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -245,7 +244,7 @@ export default function Contact() {
             </form>
           </motion.div>
 
-          {/* Right Column: Info & Map (Spans 5) */}
+          {/* Right Column: Info (Spans 5) */}
           <div className="md:col-span-5 flex flex-col gap-gutter">
             {/* Contact Details Card */}
             <motion.div 
@@ -255,92 +254,82 @@ export default function Contact() {
               }}
               style={{ boxShadow: initialShadow }}
               transition={springTransition}
-              className="bg-[#171717] p-8 rounded-2xl flex-grow relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
+              className="bg-[#171717] p-8 rounded-2xl flex-grow relative overflow-visible border-t border-white/20 border-x border-white/[0.02] border-b border-white/10 flex flex-col justify-between"
             >
-              <h3 className="font-headline-md text-lg font-bold text-premium-gold mb-6 font-headline">
-                Headquarters
-              </h3>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                      location_on
-                    </span>
+              <div>
+                <h3 className="font-headline-md text-lg font-bold text-premium-gold mb-6 font-headline">
+                  Headquarters
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        location_on
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
+                        Address
+                      </p>
+                      <p className="font-body-md text-body-md text-on-surface leading-relaxed">
+                        103 Prakash Nagar,
+                        <br />
+                        Dhar, Madhya Pradesh 454001
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
-                      Address
-                    </p>
-                    <p className="font-body-md text-body-md text-on-surface leading-relaxed">
-                      123 Financial District,
-                      <br />
-                      Vijay Nagar, Indore,
-                      <br />
-                      Madhya Pradesh 452010
-                    </p>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        mail
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
+                        Email
+                      </p>
+                      <a
+                        href="mailto:dharkargourav@gmail.com"
+                        className="font-body-md text-body-md text-on-surface font-semibold hover:text-primary transition-colors block break-all"
+                      >
+                        dharkargourav@gmail.com
+                      </a>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                      mail
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
-                      Email
-                    </p>
-                    <p className="font-body-md text-body-md text-on-surface font-semibold">
-                      contact@moneyvraksh.com
-                    </p>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                      call
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
-                      Phone
-                    </p>
-                    <p className="font-data-mono text-data-mono text-on-surface font-bold">
-                      +91 1800 123 4567
-                    </p>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        call
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
+                        Phone
+                      </p>
+                      <a
+                        href="tel:+919827562967"
+                        className="font-data-mono text-data-mono text-on-surface font-bold hover:text-primary transition-colors block"
+                      >
+                        +91 98275 62967
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Map Placeholder Card */}
-            <motion.div 
-              whileHover={{
-                y: -3,
-                boxShadow: "inset 0 1.5px 0 0 rgba(255, 255, 255, 0.08), inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.4), 0 20px 50px rgba(255, 255, 255, 0.3)"
-              }}
-              style={{ boxShadow: initialShadow }}
-              transition={springTransition}
-              className="rounded-2xl overflow-hidden h-48 relative group border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
-            >
-              {/* Dark filter */}
-              <div className="absolute inset-0 bg-background-midnight/70 opacity-80 z-10 group-hover:opacity-60 transition-opacity" />
-              <Image
-                alt="Map Location"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiSKj2jQBh1GCrTrfm4urK-ZjTS0wLR-QmYF-WY3cidA3RkMKRbXX3oogNf_zZbutLt_DNeK2dZr-_zPqIiWLcHUuyhv5h1JvsAFdU7rmrpmhxyrDelLu-OHswd_Vz6nWyO17ImfMSYUuujvPf5lsJdFlGKDPaWlbuYS1dr92DuTPMDJTDbBxC5HTozeq4x-D04628A-0ZfNw8FrDjNYDZELjomkm9uOmXDciUYv44RWaIVcZFRCPmDTu3j4EdmmWlyTzkSOw5pVT6"
-                fill
-                className="object-cover grayscale"
-              />
-              <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-                <div className="bg-background-midnight/80 backdrop-blur-md border border-elegant px-4 py-2 rounded-full flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                    my_location
-                  </span>
-                  <span className="font-label-md text-xs font-bold text-on-surface">
-                    View on Maps
-                  </span>
+              <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+                <div>
+                  <p className="font-label-md text-[10px] text-slate-text uppercase tracking-wider font-semibold">
+                    Support Hours
+                  </p>
+                  <p className="font-data-mono text-xs text-on-surface/80 mt-0.5">
+                    Mon – Fri: 9:00 AM – 6:00 PM IST
+                  </p>
+                </div>
+                <div className="px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider">
+                  Active
                 </div>
               </div>
             </motion.div>
@@ -349,9 +338,9 @@ export default function Contact() {
 
         {/* Quick Contact Cards (Bento row) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-16">
-          <Link
-            href="/contact"
-            className="block h-full group focus-ring rounded-2xl"
+          <a
+            href="tel:+919827562967"
+            className="block h-full group focus-ring rounded-2xl cursor-pointer"
           >
             <motion.div
               whileHover={{
@@ -372,18 +361,18 @@ export default function Contact() {
                   Talk to an Expert
                 </h4>
                 <p className="font-body-md text-xs text-slate-text">
-                  Direct line to our senior research analysts.
+                  Call directly at +91 98275 62967
                 </p>
               </div>
               <div className="font-data-mono text-xs text-primary font-bold mt-4">
-                Schedule Call →
+                Call Now →
               </div>
             </motion.div>
-          </Link>
+          </a>
 
-          <Link
-            href="/contact"
-            className="block h-full group focus-ring rounded-2xl"
+          <a
+            href="mailto:dharkargourav@gmail.com"
+            className="block h-full group focus-ring rounded-2xl cursor-pointer"
           >
             <motion.div
               whileHover={{
@@ -404,14 +393,14 @@ export default function Contact() {
                   Compliance Desk
                 </h4>
                 <p className="font-body-md text-xs text-slate-text">
-                  Regulatory inquiries and documentation.
+                  Write to dharkargourav@gmail.com
                 </p>
               </div>
               <div className="font-data-mono text-xs text-premium-gold font-bold mt-4">
                 Email Desk →
               </div>
             </motion.div>
-          </Link>
+          </a>
 
           <Link
             href="/contact"
@@ -451,8 +440,8 @@ export default function Contact() {
           style={{ boxShadow: initialShadow }}
           className="bg-[#171717] p-8 rounded-2xl max-w-4xl mx-auto border-t border-white/20 border-x border-white/[0.02] border-b border-white/10"
         >
-          <h2 className="font-headline-lg text-2xl font-bold mb-8 text-center text-on-surface font-headline">
-            Frequent Inquiries
+          <h2 className="font-headline-lg text-2xl md:text-4xl font-normal mb-8 text-center text-on-surface font-headline tracking-tight">
+            Frequent <span className="italic gradient-text-primary">Inquiries</span>
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => {

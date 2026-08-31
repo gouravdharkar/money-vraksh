@@ -35,7 +35,7 @@ export default function SubServiceCard({ service, index, categoryId }: SubServic
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-20px' }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.35, delay: index * 0.06 }}
     >
       <Link href={`/services/${categoryId}/${service.slug}`} className="block group h-full focus-ring rounded-xl">
