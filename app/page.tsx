@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { AboutSection } from "./components/AboutSection";
-import NiftyLiveCard from "./components/NiftyLiveCard";
 import { motion } from "framer-motion";
 import { serviceCategories } from "./services/data";
 import { ACCENT_THEMES } from "./services/types";
@@ -35,56 +35,48 @@ export default function Home() {
             }}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full items-center">
-            {/* Hero Left Content */}
-            <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-center text-center sm:text-left">
-              <div className="inline-flex items-center gap-2 bg-surface-container-high/60 border border-premium-gold/30 rounded-full px-4 sm:px-5 py-1.5 w-fit mb-5 sm:mb-6 glass-panel mx-auto sm:mx-0 shadow-sm">
-                <span className="material-symbols-outlined text-premium-gold text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  verified
-                </span>
-                <span className="font-label-md text-premium-gold uppercase tracking-widest text-[10px] sm:text-xs font-bold">
-                  SEBI NO - INH000025300
-                </span>
-              </div>
-              
-              <h1 className="font-display-lg text-3xl sm:text-5xl lg:text-6xl font-normal text-on-surface mb-4 sm:mb-6 leading-tight font-headline tracking-tight">
-                Your Financial Future <br className="hidden sm:block" />
-                <span className="gradient-text-primary italic font-normal">Starts Now</span>
-              </h1>
-              
-              <p className="font-body-lg text-sm sm:text-base lg:text-lg text-slate-text mb-8 sm:mb-10 max-w-2xl mx-auto sm:mx-0 leading-relaxed">
-                Professional Stock Market Research, Trading Insights, and Investment Strategies Designed For Consistent Growth in a complex financial landscape.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 max-w-md sm:max-w-none mx-auto sm:mx-0">
-                <MotionLink
-                  href="/contact"
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="gradient-bg-primary text-background font-label-md text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-full hover:shadow-[0_0_20px_rgba(78,222,163,0.5)] transition-all-slow flex items-center justify-center gap-2 font-bold focus-ring cursor-pointer"
-                >
-                  Talk To Our Experts
-                  <span className="material-symbols-outlined text-[18px]">
-                    arrow_forward
-                  </span>
-                </MotionLink>
-                <MotionLink
-                  href="/services"
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="bg-transparent border border-premium-gold text-premium-gold font-label-md text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-full hover:bg-premium-gold/10 transition-all-slow flex items-center justify-center gap-2 font-bold focus-ring cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-[18px]">
-                    explore
-                  </span>
-                  Explore Services
-                </MotionLink>
-              </div>
+          <div className="max-w-3xl flex flex-col justify-center text-center sm:text-left">
+            <div className="inline-flex items-center gap-2 bg-surface-container-high/60 border border-premium-gold/30 rounded-full px-4 sm:px-5 py-1.5 w-fit mb-5 sm:mb-6 glass-panel mx-auto sm:mx-0 shadow-sm">
+              <span className="material-symbols-outlined text-premium-gold text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+                verified
+              </span>
+              <span className="font-label-md text-premium-gold uppercase tracking-widest text-[10px] sm:text-xs font-bold">
+                SEBI NO - INH000025300
+              </span>
             </div>
-
-            {/* Hero Right Graphic Card (Live Nifty Card across all viewports) */}
-            <div className="lg:col-span-5 xl:col-span-4 w-full flex items-center justify-center relative mt-4 lg:mt-0">
-              <NiftyLiveCard />
+            
+            <h1 className="font-display-lg text-3xl sm:text-5xl lg:text-6xl font-normal text-on-surface mb-4 sm:mb-6 leading-tight font-headline tracking-tight">
+              Your Financial Future <br className="hidden sm:block" />
+              <span className="gradient-text-primary italic font-normal">Starts Now</span>
+            </h1>
+            
+            <p className="font-body-lg text-sm sm:text-base lg:text-lg text-slate-text mb-8 sm:mb-10 max-w-2xl mx-auto sm:mx-0 leading-relaxed">
+              Professional Stock Market Research, Trading Insights, and Investment Strategies Designed For Consistent Growth in a complex financial landscape.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 max-w-md sm:max-w-none mx-auto sm:mx-0">
+              <MotionLink
+                href="/contact"
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="gradient-bg-primary text-background font-label-md text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-full hover:shadow-[0_0_20px_rgba(78,222,163,0.5)] transition-all-slow flex items-center justify-center gap-2 font-bold focus-ring cursor-pointer"
+              >
+                Talk To Our Experts
+                <span className="material-symbols-outlined text-[18px]">
+                  arrow_forward
+                </span>
+              </MotionLink>
+              <MotionLink
+                href="/services"
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="bg-transparent border border-premium-gold text-premium-gold font-label-md text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-full hover:bg-premium-gold/10 transition-all-slow flex items-center justify-center gap-2 font-bold focus-ring cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[18px]">
+                  explore
+                </span>
+                Explore Services
+              </MotionLink>
             </div>
           </div>
         </div>
@@ -415,14 +407,29 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden glass-panel aspect-[16/10] sm:aspect-video relative flex items-center justify-center bg-surface-container-high/50 border border-elegant shadow-2xl">
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-40 transition-all duration-500 hover:scale-105"
-              style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWCfTlGgKbr_F1Yl1FWRdrUNiY21JEQSc_56PJHZbQ9g8Vw0AVwcNdERCMtTFjvra5A-lThM_l8coG1Nc5BKAW8uOguBgvIlAD9BYNoQK-JjP4JnlN1qLENAffLNkwhnWVmbkaiw4ZR66aWzqlmpddT1FiK7jlvMpz8xpclI_5LP9y4JrKKWgnobUjc0Zq2eTpHFnE5jkqdtlAT6cwCGGaSiq7S3QLAaMtH1EWE0DmOlcFk_0tVWqP6JXRmMLicman_1kBLzLGXK5K')",
-              }}
+          <div className="rounded-2xl overflow-hidden glass-panel aspect-[16/10] sm:aspect-video relative flex items-center justify-center bg-surface-container-high/50 border border-primary/20 shadow-2xl group">
+            <Image
+              src="/why-choose-us.jpg"
+              alt="Money Vriksh Quantitative Research & Market Analytics"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center opacity-90 transition-transform duration-700 ease-out group-hover:scale-105"
             />
+            {/* Subtle Gradient & Glow Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background-midnight/80 via-transparent to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+
+            {/* Floating Glass Badges */}
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
+              <div className="glass-panel px-3 py-1.5 rounded-lg border border-primary/30 flex items-center gap-2 bg-black/60 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-semibold text-on-surface">Institutional Technical Setups</span>
+              </div>
+              <div className="glass-panel px-3 py-1.5 rounded-lg border border-white/10 hidden sm:flex items-center gap-1.5 bg-black/60 backdrop-blur-md">
+                <span className="material-symbols-outlined text-sm text-premium-gold" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+                <span className="text-xs text-on-surface font-medium">SEBI Reg. INH000025300</span>
+              </div>
+            </div>
           </div>
         </div>
       </motion.section>

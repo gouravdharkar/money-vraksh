@@ -119,6 +119,7 @@
   --font-body-md: var(--font-body);
   --font-label-md: var(--font-body);
   --font-data-mono: var(--font-mono);
+  --font-instrument: var(--font-instrument);
 
   --spacing-container-max: 1280px;
   --spacing-base: 8px;
@@ -224,3 +225,41 @@ body {
 .transition-all-slow {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.font-instrument {
+  font-family: var(--font-instrument), "Instrument Serif", Georgia, serif;
+}
+
+@keyframes gradient-subtle-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animating-gradient-text {
+  background: linear-gradient(
+    120deg,
+    #4edea3 0%,
+    #10b981 25%,
+    #6ee7b7 50%,
+    #059669 75%,
+    #4edea3 100%
+  );
+  background-size: 250% 250%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+  animation: gradient-subtle-glow 7s ease-in-out infinite !important;
+  will-change: background-position;
+}
+
+
+

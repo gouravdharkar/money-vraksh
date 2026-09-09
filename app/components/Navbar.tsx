@@ -39,20 +39,27 @@ export default function Navbar() {
         ? "bg-surface-glass/95 backdrop-blur-2xl shadow-md border-b border-primary/20"
         : "bg-surface-glass backdrop-blur-2xl shadow-sm border-b border-transparent"
     } before:absolute before:bottom-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']`}>
-      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto w-full">
+      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 sm:h-20 max-w-container-max mx-auto w-full">
         {/* Brand */}
         <Link
           href="/"
-          className="font-headline-md text-headline-md font-bold text-primary flex items-center gap-3 focus-ring rounded-lg py-1 px-2"
+          className="flex items-center gap-3 sm:gap-3.5 focus-ring rounded-lg py-1 px-1.5 group transition-transform duration-200 hover:scale-[1.02]"
+          aria-label="Money Vriksh Home"
         >
-          <Image
-            src="/logo.png"
-            alt="MoneyVraksh Logo"
-            width={32}
-            height={32}
-            className="object-contain"
-          />
-          MoneyVraksh
+          <div className="relative flex items-center justify-center shrink-0 w-6 h-12 sm:w-16 sm:h-16 md:w-10 md:h-10">
+            <Image
+              src="/logo1.png"
+              alt="Money Vriksh Logo"
+              fill
+              sizes="(max-width: 640px) 30px, (max-width: 268px) 54px, 60px"
+              className="object-contain "
+              priority
+            />
+          </div>
+          <span className="font-instrument text-[1.85rem] sm:text-[2.2rem] md:text-[2.4rem] leading-none tracking-tight flex items-baseline select-none">
+            <span className="text-white font-normal">Money</span>
+            <span className="italic font-normal animating-gradient-text pr-0.5">Vriksh</span>
+          </span>
         </Link>
 
         {/* Desktop Links (Visible on Large Screens) */}
@@ -164,10 +171,10 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <>
           <div
-            className="fixed inset-0 top-[64px] bg-black/70 backdrop-blur-md z-40 lg:hidden"
+            className="fixed inset-0 top-[56px] sm:top-[64px] bg-black/70 backdrop-blur-md z-40 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="absolute top-[64px] left-0 w-full glass-panel shadow-2xl py-6 px-6 z-50 flex flex-col gap-3 animate-slide-down lg:hidden max-h-[calc(100dvh-70px)] overflow-y-auto border-b border-primary/20">
+          <div className="absolute top-full left-0 w-full glass-panel shadow-2xl py-6 px-6 z-50 flex flex-col gap-3 animate-slide-down lg:hidden max-h-[calc(100dvh-64px)] overflow-y-auto border-b border-primary/20">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
