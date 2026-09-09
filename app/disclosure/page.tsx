@@ -14,7 +14,7 @@ export default function Disclosure() {
       content: (
         <>
           <p>
-            MoneyVraksh is an independent equity research firm dedicated to providing high-quality, actionable insights to institutional and high-net-worth investors. Founded with a commitment to analytical rigor, our business model focuses entirely on proprietary research without the conflicts inherent in investment banking or proprietary trading operations.
+            MoneyVriksh is an independent equity research firm dedicated to providing high-quality, actionable insights to institutional and high-net-worth investors. Founded with a commitment to analytical rigor, our business model focuses entirely on proprietary research without the conflicts inherent in investment banking or proprietary trading operations.
           </p>
           <p className="mt-4">
             Our core business involves analyzing macroeconomic trends, sector dynamics, and individual corporate fundamentals to deliver comprehensive research reports and recommendations. We do not engage in any merchant banking, investment banking, or brokerage services.
@@ -29,7 +29,7 @@ export default function Disclosure() {
       content: (
         <>
           <p>
-            The information and views presented in our research reports are prepared by MoneyVraksh solely for informational purposes and are not intended to be a complete description of the securities, markets, or developments referred to in the material.
+            The information and views presented in our research reports are prepared by MoneyVriksh solely for informational purposes and are not intended to be a complete description of the securities, markets, or developments referred to in the material.
           </p>
           <ul className="list-disc pl-5 mt-4 space-y-2">
             <li>All research is subject to change without notice.</li>
@@ -46,7 +46,7 @@ export default function Disclosure() {
       content: (
         <>
           <p>
-            There are no material disciplinary actions, penalties, or litigations pending against MoneyVraksh or its key managerial personnel by any regulatory authority (including SEBI, stock exchanges, or other judicial bodies) as of the date of these disclosures.
+            There are no material disciplinary actions, penalties, or litigations pending against MoneyVriksh or its key managerial personnel by any regulatory authority (including SEBI, stock exchanges, or other judicial bodies) as of the date of these disclosures.
           </p>
           <p className="mt-4">
             We maintain strict compliance and adherence to regulatory directives to preserve the integrity of our advisory operations.
@@ -61,7 +61,7 @@ export default function Disclosure() {
       content: (
         <>
           <p>
-            MoneyVraksh does not have any material associate or group companies engaged in merchant banking, brokerage, portfolio management, or lending operations.
+            MoneyVriksh does not have any material associate or group companies engaged in merchant banking, brokerage, portfolio management, or lending operations.
           </p>
           <p className="mt-4">
             This lack of corporate associations guarantees that our research and market analyst insights are completely independent, objective, and free from cross-selling conflicts of interest.
@@ -76,7 +76,7 @@ export default function Disclosure() {
       content: (
         <>
           <p>
-            Pursuant to the SEBI (Research Analysts) Regulations, 2014, MoneyVraksh and its associated research analysts hereby declare:
+            Pursuant to the SEBI (Research Analysts) Regulations, 2014, MoneyVriksh and its associated research analysts hereby declare:
           </p>
           <ul className="list-disc pl-5 mt-4 space-y-2">
             <li>Neither the analyst nor their relatives have any financial interest in the subject companies under coverage.</li>

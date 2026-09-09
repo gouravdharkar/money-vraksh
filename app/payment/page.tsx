@@ -55,7 +55,7 @@ export default function PaymentPage() {
 
 
   const handleCopyAll = () => {
-    const fullText = `BANK DETAILS FOR PAYMENT - MONEYVRAKSH
+    const fullText = `BANK DETAILS FOR PAYMENT - MONEYVRIKSH
 ======================================
 Bank: UCO BANK
 Account Holder: GOURAV DHARKAR
@@ -122,7 +122,7 @@ SEBI Registration: INH000025300
             Official <span className="italic gradient-text-primary">Payment Portal</span>
           </h1>
           <p className="font-body-lg text-sm sm:text-base md:text-lg text-slate-text leading-relaxed">
-            Make fast, direct, and zero-surcharge payments for MoneyVraksh research subscriptions and advisory plans via verified Bank Transfer or UPI QR.
+            Make fast, direct, and zero-surcharge payments for MoneyVriksh research subscriptions and advisory plans via verified Bank Transfer or UPI QR.
           </p>
         </div>
 
@@ -263,7 +263,7 @@ SEBI Registration: INH000025300
                 <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-white/5 flex items-center justify-center">
                   <Image
                     src="/payment.jpeg"
-                    alt="MoneyVraksh UCO Bank UPI Payment QR Code"
+                    alt="MoneyVriksh UCO Bank UPI Payment QR Code"
                     width={400}
                     height={400}
                     priority
@@ -390,7 +390,7 @@ SEBI Registration: INH000025300
 
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
               <a
-                href="https://wa.me/919827562967?text=Hi%2C%20I%20have%20made%20a%20payment%20for%20MoneyVraksh%20service.%20Here%20is%20my%20payment%20proof."
+                href="https://wa.me/919827562967?text=Hi%2C%20I%20have%20made%20a%20payment%20for%20MoneyVriksh%20service.%20Here%20is%20my%20payment%20proof."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-all font-bold focus-ring cursor-pointer flex items-center justify-center gap-2 min-h-[44px]"
@@ -402,7 +402,7 @@ SEBI Registration: INH000025300
               </a>
 
               <a
-                href="mailto:dharkargourav@gmail.com?subject=Payment%20Confirmation%20-%20MoneyVraksh&body=Hello%20MoneyVraksh%20Team%2C%0A%0AI%20have%20transferred%20the%20subscription%20fee.%20Attached%20is%20my%20payment%20receipt.%0A%0AName%3A%0APhone%3A%0AService%20Opted%3A%0AUTR%20%2F%20Transaction%20ID%3A"
+                href="mailto:dharkargourav@gmail.com?subject=Payment%20Confirmation%20-%20MoneyVriksh&body=Hello%20MoneyVriksh%20Team%2C%0A%0AI%20have%20transferred%20the%20subscription%20fee.%20Attached%20is%20my%20payment%20receipt.%0A%0AName%3A%0APhone%3A%0AService%20Opted%3A%0AUTR%20%2F%20Transaction%20ID%3A"
                 className="bg-[#070707] border border-white/10 hover:border-primary/40 text-premium-gold font-label-md text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full hover:bg-white/5 transition-all font-bold focus-ring cursor-pointer shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center gap-2 min-h-[44px]"
               >
                 <span className="material-symbols-outlined text-[18px] sm:text-[20px]">
@@ -425,7 +425,7 @@ SEBI Registration: INH000025300
                 Important Compliance &amp; Security Advisory:
               </p>
               <p className="text-slate-text">
-                Please verify that the beneficiary name displays as <strong className="text-on-surface">GOURAV DHARKAR</strong> and bank is <strong className="text-on-surface">UCO BANK</strong> (A/C: <strong className="text-on-surface">22460210002377</strong>, IFSC: <strong className="text-on-surface">UCBA0002246</strong>). MoneyVraksh operates strictly under SEBI Research Analyst registration <strong className="text-premium-gold">INH000025300</strong> and never solicits cash deposits or payments to unauthorized accounts.
+                Please verify that the beneficiary name displays as <strong className="text-on-surface">GOURAV DHARKAR</strong> and bank is <strong className="text-on-surface">UCO BANK</strong> (A/C: <strong className="text-on-surface">22460210002377</strong>, IFSC: <strong className="text-on-surface">UCBA0002246</strong>). MoneyVriksh operates strictly under SEBI Research Analyst registration <strong className="text-premium-gold">INH000025300</strong> and never solicits cash deposits or payments to unauthorized accounts.
               </p>
             </div>
           </div>
@@ -452,7 +452,7 @@ SEBI Registration: INH000025300
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-headline-md font-bold text-lg text-on-surface">
-                  MoneyVraksh UPI Payment QR
+                  MoneyVriksh UPI Payment QR
                 </h3>
                 <button
                   onClick={() => setImageModalOpen(false)}
@@ -477,7 +477,7 @@ SEBI Registration: INH000025300
                 </p>
                 <a
                   href="/payment.jpeg"
-                  download="MoneyVraksh_Payment_QR.jpeg"
+                  download="MoneyVriksh_Payment_QR.jpeg"
                   className="px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-xs font-bold transition-colors flex items-center gap-1 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-sm">download</span>

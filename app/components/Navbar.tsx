@@ -46,13 +46,13 @@ export default function Navbar() {
           className="flex items-center gap-3 sm:gap-3.5 focus-ring rounded-lg py-1 px-1.5 group transition-transform duration-200 hover:scale-[1.02]"
           aria-label="Money Vriksh Home"
         >
-          <div className="relative flex items-center justify-center shrink-0 w-6 h-12 sm:w-16 sm:h-16 md:w-10 md:h-10">
+          <div className="relative flex items-center justify-center shrink-0 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10">
             <Image
               src="/logo1.png"
               alt="Money Vriksh Logo"
               fill
-              sizes="(max-width: 640px) 30px, (max-width: 268px) 54px, 60px"
-              className="object-contain "
+              sizes="(max-width: 640px) 32px, (max-width: 768px) 36px, 40px"
+              className="object-contain"
               priority
             />
           </div>

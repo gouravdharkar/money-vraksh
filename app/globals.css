@@ -4,7 +4,7 @@
   /* Default to Midnight theme values */
   --bg-midnight: #000000;
   --bg-main: #000000;
-  --color-primary: #4edea3;
+  --color-primary: #32CD94;
   --color-primary-container: #10b981;
   --color-success-emerald: #10B981;
   --color-premium-gold: #D4AF37;
@@ -30,7 +30,7 @@
 .theme-midnight {
   --bg-midnight: #000000;
   --bg-main: #000000;
-  --color-primary: #4edea3;
+  --color-primary: #32CD94;
   --color-primary-container: #10b981;
   --color-success-emerald: #10B981;
   --color-premium-gold: #D4AF37;
@@ -245,11 +245,11 @@ body {
 .animating-gradient-text {
   background: linear-gradient(
     120deg,
-    #4edea3 0%,
+    #32CD94 0%,
     #10b981 25%,
     #6ee7b7 50%,
     #059669 75%,
-    #4edea3 100%
+    #32CD94 100%
   );
   background-size: 250% 250%;
   -webkit-background-clip: text !important;

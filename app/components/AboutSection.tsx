@@ -45,7 +45,7 @@ export function AboutSection() {
           </h2>
 
           <p className="font-body-md text-sm sm:text-base text-slate-text leading-relaxed">
-            We at MoneyVraksh have a team of expert and connoisseur technical analysts, who on the basis of in-depth and extensive research generate constructive recommendations for our clients. We communicate these recommendations to our esteemed clients through SMS as well as Instant Messengers, to make them excel in Equity as well as Commodity Markets.
+            We at MoneyVriksh have a team of expert and connoisseur technical analysts, who on the basis of in-depth and extensive research generate constructive recommendations for our clients. We communicate these recommendations to our esteemed clients through SMS as well as Instant Messengers, to make them excel in Equity as well as Commodity Markets.
           </p>
 
           <ul className="flex flex-col gap-3">
@@ -66,7 +66,7 @@ export function AboutSection() {
           </ul>
 
           <p className="font-body-md text-xs sm:text-sm text-slate-text -mt-1">
-            MoneyVraksh is SEBI registered (Reg. No INH000025300) as a Research Analyst, providing reliable and insightful stock and index recommendations to its clients.
+            MoneyVriksh is SEBI registered (Reg. No INH000025300) as a Research Analyst, providing reliable and insightful stock and index recommendations to its clients.
           </p>
 
           {/* Buttons */}

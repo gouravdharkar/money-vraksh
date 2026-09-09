@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "MoneyVraksh - Stock Market Research & Insights",
+  title: "MoneyVriksh - Stock Market Research & Insights",
   description: "Empowering investors with institutional-grade research, trading insights, and SEBI registered advisory services.",
 };
 
