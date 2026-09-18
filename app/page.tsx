@@ -410,7 +410,7 @@ export default function Home() {
           <div className="rounded-2xl overflow-hidden glass-panel aspect-[16/10] sm:aspect-video relative flex items-center justify-center bg-surface-container-high/50 border border-primary/20 shadow-2xl group">
             <Image
               src="/why-choose-us.jpg"
-              alt="Money Vriksh Quantitative Research & Market Analytics"
+              alt="Gourav Dharkar Quantitative Research & Market Analytics"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center opacity-90 transition-transform duration-700 ease-out group-hover:scale-105"

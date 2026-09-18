@@ -5,6 +5,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ToastContainer } from "./components/Toast";
+import MetaPixel from "./components/MetaPixel";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -20,8 +21,8 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "MoneyVriksh - Stock Market Research & Insights",
-  description: "Empowering investors with institutional-grade research, trading insights, and SEBI registered advisory services.",
+  title: "Gourav Dharkar - SEBI Registered Research Analyst",
+  description: "Empowering investors with institutional-grade research, trading insights, and individual SEBI registered advisory services (Reg. INH000025300).",
 };
 
 export default function RootLayout({
@@ -48,6 +49,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        <MetaPixel />
         <ThemeProvider>
           <Navbar />
           <div className="flex-1 flex flex-col">

@@ -45,7 +45,7 @@ export function AboutSection() {
           </h2>
 
           <p className="font-body-md text-sm sm:text-base text-slate-text leading-relaxed">
-            We at MoneyVriksh have a team of expert and connoisseur technical analysts, who on the basis of in-depth and extensive research generate constructive recommendations for our clients. We communicate these recommendations to our esteemed clients through SMS as well as Instant Messengers, to make them excel in Equity as well as Commodity Markets.
+            Gourav Dharkar is an individual SEBI Registered Research Analyst who, on the basis of in-depth and extensive technical research, generates constructive recommendations for clients. We communicate these recommendations to our esteemed clients through SMS as well as Instant Messengers, to help them excel in Equity as well as Commodity Markets.
           </p>
 
           <ul className="flex flex-col gap-3">
@@ -66,7 +66,7 @@ export function AboutSection() {
           </ul>
 
           <p className="font-body-md text-xs sm:text-sm text-slate-text -mt-1">
-            MoneyVriksh is SEBI registered (Reg. No INH000025300) as a Research Analyst, providing reliable and insightful stock and index recommendations to its clients.
+            Gourav Dharkar is SEBI registered (Reg. No INH000025300) as an individual Research Analyst, providing reliable and insightful stock and index recommendations to clients.
           </p>
 
           {/* Buttons */}

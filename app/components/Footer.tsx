@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import logoImg from "@/public/logo1.png";
 
 export default function Footer() {
   return (
@@ -12,20 +13,20 @@ export default function Footer() {
           <Link
             href="/"
             className="flex items-center gap-2.5 sm:gap-3 mb-1 focus-ring rounded-lg w-fit group transition-transform duration-200 hover:scale-[1.02]"
-            aria-label="Money Vriksh Home"
+            aria-label="Gourav Dharkar Home"
           >
             <div className="relative flex items-center justify-center shrink-0 w-8 h-8 sm:w-9 sm:h-9">
               <Image
-                src="/logo1.png"
-                alt="Money Vriksh Logo"
+                src={logoImg}
+                alt="Gourav Dharkar Logo"
                 fill
                 sizes="36px"
                 className="object-contain"
               />
             </div>
             <span className="font-instrument text-[1.65rem] sm:text-[1.85rem] leading-none tracking-tight flex items-baseline select-none">
-              <span className="text-white font-normal">Money</span>
-              <span className="italic font-normal animating-gradient-text pr-0.5">Vriksh</span>
+              <span className="text-white font-normal">Gourav</span>
+              <span className="italic font-normal animating-gradient-text pl-1.5 pr-0.5">Dharkar</span>
             </span>
           </Link>
           <p className="font-body-md text-body-md text-slate-text text-sm leading-relaxed">
@@ -77,7 +78,7 @@ export default function Footer() {
             Terms &amp; Conditions
           </Link>
           <p className="font-body-md text-premium-gold text-xs leading-relaxed mt-2">
-            © {new Date().getFullYear()} MoneyVriksh. SEBI Reg. NO INH000025300.
+            © {new Date().getFullYear()} Gourav Dharkar. SEBI Reg. NO INH000025300.
           </p>
         </div>
       </div>
@@ -85,7 +86,7 @@ export default function Footer() {
       {/* Compliance Bottom Bar */}
       <div className="relative py-6 px-margin-mobile md:px-margin-desktop text-center before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/15 before:to-transparent before:content-['']">
         <p className="font-data-mono text-data-mono text-premium-gold max-w-4xl mx-auto font-normal text-[11px] opacity-75 leading-relaxed">
-          Disclaimer: MoneyVriksh is a SEBI registered Research Analyst (INH000025300). Trading and investing in stock markets involve significant market risk. All recommendations are for educational &amp; advisory purposes.
+          Disclaimer: Gourav Dharkar is an individual SEBI registered Research Analyst (INH000025300). Trading and investing in stock markets involve significant market risk. All recommendations are for educational &amp; advisory purposes.
         </p>
       </div>
     </footer>

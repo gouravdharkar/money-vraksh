@@ -44,7 +44,7 @@ export default function About() {
                 <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-normal font-headline tracking-tight">Our <span className="italic text-premium-gold">Story</span></h2>
               </div>
               <p className="text-slate-text mb-4 leading-relaxed font-body-md text-sm sm:text-base">
-                Founded on the principle that superior market intelligence should be accessible to those who seek serious wealth generation, MoneyVriksh has grown from a specialized analytics desk into a trusted advisory powerhouse.
+                Founded on the principle that superior market intelligence should be accessible to those who seek serious wealth generation, Gourav Dharkar has established a premier independent equity research practice.
               </p>
               <p className="text-slate-text leading-relaxed font-body-md text-sm sm:text-base">
                 Our deep-rooted expertise in navigating volatile markets ensures that our clients are always positioned strategically, leveraging both macro trends and micro anomalies to secure sustained growth.
@@ -117,11 +117,11 @@ export default function About() {
                   </span>
                 </div>
                 <h2 className="font-headline-lg text-xl sm:text-2xl md:text-3xl font-normal font-headline tracking-tight">
-                  Message from <span className="italic text-primary">Leadership</span>
+                  Message from <span className="italic text-primary">Gourav Dharkar</span>
                 </h2>
               </div>
               <blockquote className="italic text-slate-text border-l-2 border-primary/30 pl-4 py-1 leading-relaxed font-body-md text-sm sm:text-base">
-                &quot;In an era of information overload, true value lies in synthesized intelligence. At MoneyVriksh, we don&apos;t just provide data; we provide conviction. Our goal is to transform complexity into clarity, empowering you to navigate the financial markets with absolute confidence.&quot;
+                &quot;In an era of information overload, true value lies in synthesized intelligence. As an independent SEBI Registered Research Analyst, I don&apos;t just provide data; I provide conviction. My goal is to transform complexity into clarity, empowering you to navigate the financial markets with absolute confidence.&quot;
               </blockquote>
             </div>
           </motion.div>

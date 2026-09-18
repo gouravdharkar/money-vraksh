@@ -14,7 +14,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      const savedTheme = (localStorage.getItem("money-vriksh-theme") || localStorage.getItem("money-vraksh-theme")) as Theme;
+      const savedTheme = (localStorage.getItem("gourav-dharkar-theme") || localStorage.getItem("money-vriksh-theme") || localStorage.getItem("money-vraksh-theme")) as Theme;
       if (savedTheme && ["midnight", "truedark", "light"].includes(savedTheme)) {
         return savedTheme;
       }
@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem("money-vriksh-theme", newTheme);
+    localStorage.setItem("gourav-dharkar-theme", newTheme);
   };
 
   useEffect(() => {

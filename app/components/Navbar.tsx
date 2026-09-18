@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "./ThemeProvider";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import logoImg from "@/public/logo1.png";
 
 const MotionLink = motion.create(Link);
 
@@ -44,12 +45,12 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-3 sm:gap-3.5 focus-ring rounded-lg py-1 px-1.5 group transition-transform duration-200 hover:scale-[1.02]"
-          aria-label="Money Vriksh Home"
+          aria-label="Gourav Dharkar Home"
         >
           <div className="relative flex items-center justify-center shrink-0 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10">
             <Image
-              src="/logo1.png"
-              alt="Money Vriksh Logo"
+              src={logoImg}
+              alt="Gourav Dharkar Logo"
               fill
               sizes="(max-width: 640px) 32px, (max-width: 768px) 36px, 40px"
               className="object-contain"
@@ -57,8 +58,8 @@ export default function Navbar() {
             />
           </div>
           <span className="font-instrument text-[1.85rem] sm:text-[2.2rem] md:text-[2.4rem] leading-none tracking-tight flex items-baseline select-none">
-            <span className="text-white font-normal">Money</span>
-            <span className="italic font-normal animating-gradient-text pr-0.5">Vriksh</span>
+            <span className="text-white font-normal">Gourav</span>
+            <span className="italic font-normal animating-gradient-text pl-1.5 sm:pl-2 pr-0.5">Dharkar</span>
           </span>
         </Link>
 
