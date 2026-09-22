@@ -1,0 +1,387 @@
+@import "tailwindcss";
+
+:root {
+  /* Default to Midnight theme values */
+  --bg-midnight: #000000;
+  --bg-main: #000000;
+  --color-primary: #32CD94;
+  --color-primary-container: #10b981;
+  --color-success-emerald: #10B981;
+  --color-premium-gold: #D4AF37;
+  --border-elegant: rgba(255, 255, 255, 0.015);
+  --surface-glass: rgba(255, 255, 255, 0.03);
+  --slate-text: #94A3B8;
+  --on-surface: #dbe3f3;
+  --on-surface-variant: #bbcabf;
+  --surface-container-low: #141c28;
+  --surface-container: #18202c;
+  --surface-container-high: #222a36;
+  --surface-container-highest: #2d3542;
+  --on-primary: #003824;
+  --inverse-primary: #006c49;
+  --error: #ffb4ab;
+  --font-display: var(--font-instrument), Georgia, serif;
+  --font-headline: var(--font-instrument), Georgia, serif;
+  --font-body: var(--font-jakarta), sans-serif;
+  --font-mono: var(--font-jakarta), sans-serif;
+}
+
+/* Explicit Themes */
+.theme-midnight {
+  --bg-midnight: #000000;
+  --bg-main: #000000;
+  --color-primary: #32CD94;
+  --color-primary-container: #10b981;
+  --color-success-emerald: #10B981;
+  --color-premium-gold: #D4AF37;
+  --border-elegant: rgba(255, 255, 255, 0.015);
+  --surface-glass: rgba(255, 255, 255, 0.03);
+  --slate-text: #94A3B8;
+  --on-surface: #dbe3f3;
+  --on-surface-variant: #bbcabf;
+  --surface-container-low: #141c28;
+  --surface-container: #18202c;
+  --surface-container-high: #222a36;
+  --surface-container-highest: #2d3542;
+  --on-primary: #003824;
+  --inverse-primary: #006c49;
+  --error: #ffb4ab;
+}
+
+.theme-truedark {
+  --bg-midnight: #000000;
+  --bg-main: #000000;
+  --color-primary: #10B981;
+  --color-primary-container: #064e3b;
+  --color-success-emerald: #10B981;
+  --color-premium-gold: #F59E0B;
+  --border-elegant: rgba(255, 255, 255, 0.08);
+  --surface-glass: rgba(255, 255, 255, 0.05);
+  --slate-text: #9CA3AF;
+  --on-surface: #F9FAFB;
+  --on-surface-variant: #D1D5DB;
+  --surface-container-low: #111827;
+  --surface-container: #1F2937;
+  --surface-container-high: #374151;
+  --surface-container-highest: #4B5563;
+  --on-primary: #ffffff;
+  --inverse-primary: #047857;
+  --error: #F87171;
+}
+
+.theme-light {
+  --bg-midnight: #F8FAFC;
+  --bg-main: #FFFFFF;
+  --color-primary: #059669;
+  --color-primary-container: #D1FAE5;
+  --color-success-emerald: #10B981;
+  --color-premium-gold: #B45309;
+  --border-elegant: rgba(0, 0, 0, 0.08);
+  --surface-glass: rgba(255, 255, 255, 0.7);
+  --slate-text: #475569;
+  --on-surface: #0F172A;
+  --on-surface-variant: #334155;
+  --surface-container-low: #F1F5F9;
+  --surface-container: #E2E8F0;
+  --surface-container-high: #CBD5E1;
+  --surface-container-highest: #94A3B8;
+  --on-primary: #FFFFFF;
+  --inverse-primary: #10B981;
+  --error: #EF4444;
+}
+
+@theme {
+  --color-background-midnight: var(--bg-midnight);
+  --color-background: var(--bg-main);
+  --color-primary: var(--color-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-success-emerald: var(--color-success-emerald);
+  --color-premium-gold: var(--color-premium-gold);
+  --color-border-elegant: var(--border-elegant);
+  --color-surface-glass: var(--surface-glass);
+  --color-slate-text: var(--slate-text);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-primary: var(--on-primary);
+  --color-inverse-primary: var(--inverse-primary);
+  --color-error: var(--error);
+
+  --font-sans: var(--font-body);
+  --font-headline: var(--font-display);
+  --font-display-lg: var(--font-display);
+  --font-headline-lg: var(--font-display);
+  --font-headline-md: var(--font-body);
+  --font-body-lg: var(--font-body);
+  --font-body-md: var(--font-body);
+  --font-label-md: var(--font-body);
+  --font-data-mono: var(--font-mono);
+  --font-instrument: var(--font-instrument);
+
+  --spacing-container-max: 1280px;
+  --spacing-base: 8px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 40px;
+  --spacing-gutter: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg-midnight);
+  color: var(--on-surface);
+  font-family: var(--font-jakarta);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-midnight transition-all duration-150;
+}
+
+.theme-light .focus-ring {
+  @apply focus-visible:ring-offset-white;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-elegant);
+  box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.02);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(78, 222, 163, 0.1), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.theme-light .glass-panel-hover:hover {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Light Leak Effect */
+.light-leak-primary {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(78, 222, 163, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.theme-light .light-leak-primary {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+}
+
+.light-leak-secondary {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.theme-light .light-leak-secondary {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.04) 0%, transparent 70%);
+}
+
+/* Custom Gradients */
+.gradient-text-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success-emerald) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success-emerald) 100%);
+}
+
+.gradient-text-gold {
+  background: linear-gradient(90deg, #F3E5AB 0%, var(--color-premium-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.transition-all-slow {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.font-instrument {
+  font-family: var(--font-instrument), "Instrument Serif", Georgia, serif;
+}
+
+@keyframes gradient-subtle-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animating-gradient-text {
+  background: linear-gradient(
+    120deg,
+    #32CD94 0%,
+    #10b981 25%,
+    #6ee7b7 50%,
+    #059669 75%,
+    #32CD94 100%
+  );
+  background-size: 250% 250%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+  animation: gradient-subtle-glow 7s ease-in-out infinite !important;
+  will-change: background-position;
+}
+
+/* ========================================================
+   LIGHT THEME DESIGN SYSTEM & ELEVATION
+   ======================================================== */
+.theme-light {
+  color-scheme: light;
+}
+
+/* 1. Cards (Bento grid, service cards, payment, about, disclosure, etc.) */
+.theme-light .bg-\[\#171717\],
+.theme-light .bg-\[\#121212\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+.theme-light .bg-\[\#171717\]:hover,
+.theme-light .bg-\[\#121212\]:hover {
+  border-color: rgba(5, 150, 105, 0.35) !important;
+  box-shadow: 0 16px 32px -4px rgba(5, 150, 105, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 2. Inner containers, icon boxes, input boxes, detail rows */
+.theme-light .bg-\[\#070707\],
+.theme-light .bg-\[\#0a0a0a\] {
+  background-color: #f8fafc !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  color: var(--on-surface) !important;
+}
+
+/* 3. Form Inputs & Selects in contact / payment pages */
+.theme-light input,
+.theme-light select,
+.theme-light textarea {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.theme-light input::placeholder,
+.theme-light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.theme-light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.theme-light input:focus,
+.theme-light select:focus,
+.theme-light textarea:focus {
+  background-color: #ffffff !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15) !important;
+}
+
+/* 4. White borders adaptation */
+.theme-light .border-white\/20,
+.theme-light .border-white\/10,
+.theme-light .border-white\/5,
+.theme-light .border-white\/\[0\.02\] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 5. Glass panels & Navbars */
+.theme-light .glass-panel {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+.theme-light nav {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-light nav::before {
+  background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.25), transparent) !important;
+}
+
+.theme-light footer {
+  background-color: #f8fafc !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-light footer::before,
+.theme-light footer > div:last-child::before {
+  background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.2), transparent) !important;
+}
+
+/* 6. Theme dropdown popup */
+.theme-light .glass-panel.rounded-xl {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* 7. Subtle elements & badges */
+.theme-light .text-white\/10 {
+  color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 8. Text adaptation */
+.theme-light .text-white:not(button *):not(a *):not(.gradient-bg-primary *):not([class*="bg-primary"]):not([class*="bg-emerald"]):not([class*="bg-green"]) {
+  color: #0f172a !important;
+}
+
+/* 9. High-contrast primary buttons */
+.theme-light .gradient-bg-primary,
+.theme-light .gradient-bg-primary * {
+  color: #ffffff !important;
+}
+
+/* 10. QR code frame */
+.theme-light .aspect-square.bg-white {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+
+
+
