@@ -16,66 +16,117 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [themeMenuOpen, setThemeMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // IntersectionObserver to detect active section on home page
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = ["home", "about", "services", "payment", "contact", "disclosure"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [pathname]);
+
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Payment", href: "/payment" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Disclosure", href: "/disclosure" },
+    { name: "Home", href: "#home", id: "home" },
+    { name: "About Us", href: "#about", id: "about" },
+    { name: "Services", href: "#services", id: "services" },
+    { name: "Payment", href: "#payment", id: "payment" },
+    { name: "Contact Us", href: "#contact", id: "contact" },
+    { name: "Disclosure", href: "#disclosure", id: "disclosure" },
   ];
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+        setActiveSection(id);
+      }
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled
-        ? "bg-surface-glass/95 backdrop-blur-2xl shadow-md border-b border-primary/20"
-        : "bg-surface-glass backdrop-blur-2xl shadow-sm border-b border-transparent"
-    } before:absolute before:bottom-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']`}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-surface-glass/95 backdrop-blur-2xl shadow-md border-b border-primary/20"
+          : "bg-surface-glass backdrop-blur-2xl shadow-sm border-b border-transparent"
+      } before:absolute before:bottom-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']`}
+    >
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-[76px] sm:h-[84px] max-w-container-max mx-auto w-full">
         {/* Brand */}
         <Link
-          href="/"
-          className="flex items-center focus-ring rounded-full py-1 px-1 group transition-transform duration-200 hover:scale-[1.03]"
+          href="/#home"
+          onClick={(e) => handleLinkClick(e, "#home", "home")}
+          className="flex items-center gap-2.5 sm:gap-3 focus-ring rounded-full py-1 px-1 group transition-transform duration-200 hover:scale-[1.02]"
           aria-label="Money Vriksh Home"
         >
-          <div className="relative shrink-0 w-14 h-14 sm:w-[60px] sm:h-[60px] rounded-full overflow-hidden ring-2 ring-primary/30 shadow-[0_0_12px_rgba(50,205,148,0.15)] group-hover:ring-primary/50 group-hover:shadow-[0_0_18px_rgba(50,205,148,0.25)] transition-all duration-300">
+          <div className="relative shrink-0 w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden ring-2 ring-primary/30 shadow-[0_0_12px_rgba(50,205,148,0.15)] group-hover:ring-primary/50 group-hover:shadow-[0_0_18px_rgba(50,205,148,0.25)] transition-all duration-300">
             <Image
               src={logoImg}
               alt="Money Vriksh Logo"
               fill
-              sizes="(max-width: 640px) 56px, 60px"
+              sizes="(max-width: 640px) 44px, 52px"
               className="object-cover"
               priority
               unoptimized
             />
           </div>
+          <span className="font-instrument text-[1.35rem] sm:text-[1.55rem] leading-none tracking-tight flex items-baseline select-none">
+            <span className="text-on-surface font-normal">Money</span>
+            <span className="italic font-normal animating-gradient-text pl-1.5 pr-0.5">Vriksh</span>
+          </span>
         </Link>
 
         {/* Desktop Links (Visible on Large Screens) */}
         <div className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === "/" ? activeSection === link.id : false;
+            const fullHref = pathname === "/" ? link.href : `/${link.href}`;
+
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`transition-all duration-200 text-sm xl:text-[0.9rem] focus-ring rounded-lg py-2 px-3 xl:px-4 ${
+              <a
+                key={link.id}
+                href={fullHref}
+                onClick={(e) => handleLinkClick(e, link.href, link.id)}
+                className={`transition-all duration-200 text-sm xl:text-[0.9rem] focus-ring rounded-lg py-2 px-3 xl:px-4 cursor-pointer ${
                   isActive
-                    ? "text-primary font-semibold bg-primary/10"
+                    ? "text-primary font-semibold bg-primary/10 shadow-[inset_0_1px_2px_rgba(50,205,148,0.2)]"
                     : "text-on-surface-variant hover:text-primary hover:bg-primary/5"
                 }`}
               >
                 {link.name}
-              </Link>
+              </a>
             );
           })}
         </div>
@@ -143,14 +194,13 @@ export default function Navbar() {
             )}
           </div>
 
-          <MotionLink
-            href="/contact"
-            className="hidden sm:block gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-5 lg:px-6 py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0"
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          <a
+            href={pathname === "/" ? "#contact" : "/#contact"}
+            onClick={(e) => handleLinkClick(e, "#contact", "contact")}
+            className="hidden sm:inline-flex items-center justify-center gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-5 lg:px-6 py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0 cursor-pointer"
           >
             Get Started
-          </MotionLink>
+          </a>
 
           {/* Mobile & Tablet Menu Toggle */}
           <button
@@ -174,31 +224,31 @@ export default function Navbar() {
           />
           <div className="absolute top-full left-0 w-full glass-panel shadow-2xl py-6 px-6 z-50 flex flex-col gap-3 animate-slide-down lg:hidden max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-primary/20">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === "/" ? activeSection === link.id : false;
+              const fullHref = pathname === "/" ? link.href : `/${link.href}`;
+
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-base font-body-md py-3 px-3 rounded-lg transition-all focus-ring min-h-[44px] flex items-center ${
+                <a
+                  key={link.id}
+                  href={fullHref}
+                  onClick={(e) => handleLinkClick(e, link.href, link.id)}
+                  className={`text-base font-body-md py-3 px-3 rounded-lg transition-all focus-ring min-h-[44px] flex items-center cursor-pointer ${
                     isActive
                       ? "text-primary font-bold bg-primary/10 border-l-4 border-primary pl-4"
                       : "text-on-surface-variant hover:text-primary hover:bg-white/[0.02]"
                   }`}
                 >
                   {link.name}
-                </Link>
+                </a>
               );
             })}
-            <MotionLink
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center gradient-bg-primary text-background font-label-md text-sm py-3.5 rounded-xl mt-3 font-bold shadow-lg focus-ring min-h-[44px] flex items-center justify-center"
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            <a
+              href={pathname === "/" ? "#contact" : "/#contact"}
+              onClick={(e) => handleLinkClick(e, "#contact", "contact")}
+              className="w-full text-center gradient-bg-primary text-background font-label-md text-sm py-3.5 rounded-xl mt-3 font-bold shadow-lg focus-ring min-h-[44px] flex items-center justify-center cursor-pointer"
             >
               Get Started
-            </MotionLink>
+            </a>
           </div>
         </>
       )}

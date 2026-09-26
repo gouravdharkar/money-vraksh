@@ -39,13 +39,13 @@ export default function Footer() {
           <span className="font-label-md text-label-md text-on-surface mb-1 font-bold uppercase tracking-wider text-xs">
             Company
           </span>
-          <Link href="/" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#home" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             Home
           </Link>
-          <Link href="/about" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#about" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             About Us
           </Link>
-          <Link href="/services" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#services" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             Services
           </Link>
         </div>
@@ -55,13 +55,13 @@ export default function Footer() {
           <span className="font-label-md text-label-md text-on-surface mb-1 font-bold uppercase tracking-wider text-xs">
             Support &amp; Payment
           </span>
-          <Link href="/payment" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#payment" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             Payment Details
           </Link>
-          <Link href="/services#faq" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#contact" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             FAQ
           </Link>
-          <Link href="/contact" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#contact" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             Contact Us
           </Link>
         </div>
@@ -71,10 +71,10 @@ export default function Footer() {
           <span className="font-label-md text-label-md text-on-surface mb-1 font-bold uppercase tracking-wider text-xs">
             Legal &amp; Compliance
           </span>
-          <Link href="/disclosure" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#disclosure" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             Disclosure
           </Link>
-          <Link href="/disclosure#terms" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <Link href="/#disclosure" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
             Terms &amp; Conditions
           </Link>
           <p className="font-body-md text-premium-gold text-xs leading-relaxed mt-2">
