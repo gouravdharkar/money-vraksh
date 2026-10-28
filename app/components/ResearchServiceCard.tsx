@@ -28,7 +28,6 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
   }, []);
 
   const currentPlan = service.plans[selectedDuration];
-  const isCombo = service.id === 'premium-combo';
 
   // WhatsApp redirection link
   const whatsappMessage = `Hi, I want to get started with Money Vriksh Research Service: ${service.title} (${currentPlan.label}). Please share onboarding and payment details.`;
@@ -49,57 +48,43 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
         }}
         className="bg-[#171717] rounded-2xl border-t border-white/20 border-x border-white/[0.03] border-b border-white/10 hover:border-primary/40 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between h-full group relative"
       >
-        {/* Top Content with unified min-heights for consistent baseline alignment */}
-        <div>
+        {/* TOP BLOCK: Fixed minimum height across all cards guarantees identical button baseline */}
+        <div className="min-h-[275px] md:min-h-[290px] lg:min-h-[300px] flex flex-col justify-start">
           {/* Badge */}
           <div className="mb-3.5 h-6 flex items-center">
-            <span
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase ${
-                isCombo
-                  ? 'bg-premium-gold/15 text-premium-gold border border-premium-gold/30'
-                  : 'bg-primary/10 text-primary border border-primary/25'
-              }`}
-            >
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${
-                  isCombo ? 'bg-premium-gold' : 'bg-primary'
-                } animate-pulse`}
-              />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary border border-primary/25">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               {service.badge}
             </span>
           </div>
 
-          {/* Title (fixed min-height for clean alignment) */}
-          <div className="min-h-[40px] flex items-center mb-1.5">
+          {/* Title */}
+          <div className="min-h-[36px] flex items-center mb-1.5">
             <h3 className="text-2xl sm:text-[26px] font-bold text-on-surface font-sans tracking-tight leading-tight">
               {service.title}
             </h3>
           </div>
 
-          {/* Subtitle (min-h-[56px] to accommodate up to 3 lines across all cards) */}
-          <div className="min-h-[56px] flex items-start mb-3">
-            <p
-              className={`text-xs font-semibold leading-relaxed ${
-                isCombo ? 'text-premium-gold/90' : 'text-primary/90'
-              }`}
-            >
+          {/* Subtitle */}
+          <div className="min-h-[52px] flex items-start mb-2.5">
+            <p className="text-xs font-semibold leading-relaxed text-primary/90">
               {service.subtitle}
             </p>
           </div>
 
-          {/* Description (min-h-[120px] so all descriptions fit uniformly) */}
-          <div className="min-h-[120px] mb-5">
+          {/* Description */}
+          <div className="flex-1 flex items-start mb-4">
             <p className="text-xs text-on-surface-variant/75 leading-relaxed font-normal">
               {service.description}
             </p>
           </div>
         </div>
 
-        {/* Pricing, Duration & CTA Section - Perfectly aligned across all cards */}
-        <div className="mt-auto">
+        {/* MIDDLE BLOCK: DURATION, Pricing & Get Started Button (strictly aligned across all cards) */}
+        <div>
           {/* Duration Section */}
           <div className="mb-4">
-            <label className="text-[10px] font-bold tracking-widest text-slate-text uppercase mb-2 block">
+            <label className="text-[10px] font-bold tracking-widest text-slate-text uppercase mb-2 block font-semibold">
               DURATION
             </label>
 
@@ -175,11 +160,7 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
           {/* Price Display */}
           <div className="mt-5 mb-5">
             <div className="h-10 flex items-baseline">
-              <span
-                className={`text-3xl sm:text-4xl font-extrabold font-sans tracking-tight ${
-                  isCombo ? 'text-premium-gold' : 'text-white'
-                }`}
-              >
+              <span className="text-3xl sm:text-4xl font-extrabold font-sans tracking-tight text-white">
                 {currentPlan.priceFormatted}
               </span>
             </div>
@@ -189,16 +170,12 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
             </p>
           </div>
 
-          {/* Action Button: Get Started (aligned on the same baseline across all cards) */}
+          {/* Action Button: Get Started (All cards use identical emerald green gradient-bg-primary button) */}
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`w-full h-[48px] py-3 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer group shadow-lg ${
-              isCombo
-                ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]'
-                : 'gradient-bg-primary text-background hover:shadow-[0_0_25px_rgba(50,205,148,0.4)]'
-            } hover:scale-[1.01] active:scale-[0.98]`}
+            className="w-full h-[48px] py-3 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer group shadow-lg gradient-bg-primary text-background hover:shadow-[0_0_25px_rgba(50,205,148,0.4)] hover:scale-[1.01] active:scale-[0.98]"
           >
             <span>Get Started</span>
             <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-200">
@@ -209,9 +186,7 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
           {/* Security badge below button */}
           <div className="flex items-center justify-center gap-1.5 text-xs text-slate-text font-medium mt-3 mb-6 h-5">
             <span
-              className={`material-symbols-outlined text-sm ${
-                isCombo ? 'text-premium-gold' : 'text-primary'
-              }`}
+              className="material-symbols-outlined text-sm text-primary"
               style={{ fontVariationSettings: "'FILL' 1" }}
             >
               verified_user
@@ -220,26 +195,16 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
           </div>
         </div>
 
-        {/* Features Checklist at bottom (consistent min-height for uniform bottom baseline) */}
-        <div className="pt-4 border-t border-white/10 flex items-start gap-2.5 text-xs text-on-surface-variant/75 leading-relaxed min-h-[80px]">
-          <span
-            className={`font-bold text-sm shrink-0 select-none ${
-              isCombo ? 'text-premium-gold' : 'text-primary'
-            }`}
-          >
+        {/* BOTTOM BLOCK: Features Checklist */}
+        <div className="pt-4 border-t border-white/10 flex items-start gap-2.5 text-xs text-on-surface-variant/75 leading-relaxed min-h-[85px]">
+          <span className="font-bold text-sm shrink-0 select-none text-primary">
             ✓
           </span>
           <p className="flex-1">{service.features}</p>
         </div>
 
         {/* Subtle accent line on hover */}
-        <div
-          className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-            isCombo
-              ? 'bg-gradient-to-r from-amber-400 to-amber-500'
-              : 'bg-gradient-to-r from-primary to-success-emerald'
-          }`}
-        />
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary to-success-emerald" />
       </div>
     </motion.div>
   );
