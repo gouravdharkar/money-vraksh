@@ -1,22 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "./ThemeProvider";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import logoImg from "@/public/logo1.jpeg";
 
-const MotionLink = motion.create(Link);
-
 export default function Navbar() {
-  const pathname = usePathname();
   const { theme, setTheme } = useTheme();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [themeMenuOpen, setThemeMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,53 +19,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // IntersectionObserver to detect active section on home page
-  useEffect(() => {
-    if (pathname !== "/") return;
-
-    const sections = ["home", "about", "services", "payment", "contact", "disclosure"];
-    const observerOptions = {
-      root: null,
-      rootMargin: "-25% 0px -55% 0px",
-      threshold: 0,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, [pathname]);
-
-  const navLinks = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "About Us", href: "#about", id: "about" },
-    { name: "Services", href: "#services", id: "services" },
-    { name: "Payment", href: "#payment", id: "payment" },
-    { name: "Contact Us", href: "#contact", id: "contact" },
-    { name: "Disclosure", href: "#disclosure", id: "disclosure" },
-  ];
-
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
-    if (pathname === "/") {
-      e.preventDefault();
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        window.history.replaceState(null, "", "/");
-        setActiveSection(id);
-      }
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", "/");
     }
-    setMobileMenuOpen(false);
   };
 
   return (
@@ -86,8 +39,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-[76px] sm:h-[84px] max-w-container-max mx-auto w-full">
         {/* Brand */}
         <Link
-          href="/#home"
-          onClick={(e) => handleLinkClick(e, "#home", "home")}
+          href="/"
           className="flex items-center gap-2.5 sm:gap-3 focus-ring rounded-full py-1 px-1 group transition-transform duration-200 hover:scale-[1.02]"
           aria-label="Money Vriksh Home"
         >
@@ -108,31 +60,8 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Links (Visible on Large Screens) */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-          {navLinks.map((link) => {
-            const isActive = pathname === "/" ? activeSection === link.id : false;
-            const fullHref = pathname === "/" ? link.href : `/${link.href}`;
-
-            return (
-              <a
-                key={link.id}
-                href={fullHref}
-                onClick={(e) => handleLinkClick(e, link.href, link.id)}
-                className={`transition-all duration-200 text-sm xl:text-[0.9rem] focus-ring rounded-lg py-2 px-3 xl:px-4 cursor-pointer ${
-                  isActive
-                    ? "text-primary font-semibold bg-primary/10 shadow-[inset_0_1px_2px_rgba(50,205,148,0.2)]"
-                    : "text-on-surface-variant hover:text-primary hover:bg-primary/5"
-                }`}
-              >
-                {link.name}
-              </a>
-            );
-          })}
-        </div>
-
         {/* Actions (Theme toggle & Get Started) */}
-        <div className="flex items-center gap-2 sm:gap-3 relative">
+        <div className="flex items-center gap-2.5 sm:gap-3 relative">
           {/* Theme Dropdown Toggle */}
           <div className="relative">
             <button
@@ -195,63 +124,14 @@ export default function Navbar() {
           </div>
 
           <a
-            href={pathname === "/" ? "#contact" : "/#contact"}
-            onClick={(e) => handleLinkClick(e, "#contact", "contact")}
-            className="hidden sm:inline-flex items-center justify-center gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-5 lg:px-6 py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0 cursor-pointer"
+            href="#contact"
+            onClick={handleScrollToContact}
+            className="inline-flex items-center justify-center gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0 cursor-pointer"
           >
             Get Started
           </a>
-
-          {/* Mobile & Tablet Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-on-surface p-2 hover:bg-surface-container-high/50 rounded-full transition-colors cursor-pointer focus-ring min-w-[40px] min-h-[40px] flex items-center justify-center"
-            aria-label="Toggle navigation menu"
-          >
-            <span className="material-symbols-outlined text-2xl">
-              {mobileMenuOpen ? "close" : "menu"}
-            </span>
-          </button>
         </div>
       </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <>
-          <div
-            className="fixed inset-0 top-16 sm:top-[72px] bg-black/70 backdrop-blur-md z-40 lg:hidden"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-          <div className="absolute top-full left-0 w-full glass-panel shadow-2xl py-6 px-6 z-50 flex flex-col gap-3 animate-slide-down lg:hidden max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-primary/20">
-            {navLinks.map((link) => {
-              const isActive = pathname === "/" ? activeSection === link.id : false;
-              const fullHref = pathname === "/" ? link.href : `/${link.href}`;
-
-              return (
-                <a
-                  key={link.id}
-                  href={fullHref}
-                  onClick={(e) => handleLinkClick(e, link.href, link.id)}
-                  className={`text-base font-body-md py-3 px-3 rounded-lg transition-all focus-ring min-h-[44px] flex items-center cursor-pointer ${
-                    isActive
-                      ? "text-primary font-bold bg-primary/10 border-l-4 border-primary pl-4"
-                      : "text-on-surface-variant hover:text-primary hover:bg-white/[0.02]"
-                  }`}
-                >
-                  {link.name}
-                </a>
-              );
-            })}
-            <a
-              href={pathname === "/" ? "#contact" : "/#contact"}
-              onClick={(e) => handleLinkClick(e, "#contact", "contact")}
-              className="w-full text-center gradient-bg-primary text-background font-label-md text-sm py-3.5 rounded-xl mt-3 font-bold shadow-lg focus-ring min-h-[44px] flex items-center justify-center cursor-pointer"
-            >
-              Get Started
-            </a>
-          </div>
-        </>
-      )}
     </nav>
   );
 }
