@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.1.5", "localhost"],
+  allowedDevOrigins: ["192.168.1.27", "192.168.1.5", "localhost"],
   turbopack: {
     root: path.resolve(__dirname),
   },
@@ -24,11 +24,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/about", destination: "/#about", permanent: false },
-      { source: "/services", destination: "/#services", permanent: false },
-      { source: "/payment", destination: "/#payment", permanent: false },
-      { source: "/contact", destination: "/#contact", permanent: false },
-      { source: "/disclosure", destination: "/#disclosure", permanent: false },
+      { source: "/about", destination: "/", permanent: false },
+      { source: "/services", destination: "/", permanent: false },
+      { source: "/services/:path*", destination: "/", permanent: false },
+      { source: "/payment", destination: "/", permanent: false },
+      { source: "/contact", destination: "/", permanent: false },
+      { source: "/disclosure", destination: "/", permanent: false },
     ];
   },
 };

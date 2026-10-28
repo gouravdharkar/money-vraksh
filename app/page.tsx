@@ -8,6 +8,8 @@ import { showToast } from "./components/Toast";
 import { serviceCategories } from "./services/data";
 import { ACCENT_THEMES } from "./services/types";
 import CategoryCard from "./services/components/CategoryCard";
+import ResearchServiceCard from "./components/ResearchServiceCard";
+import { researchServicesData } from "./services/researchServicesData";
 import qrCodeImg from "@/public/qr-code.png";
 
 const MotionLink = motion.create(Link);
@@ -757,10 +759,22 @@ SEBI Registration: INH000025300
           </p>
         </div>
 
-        {/* All Service Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {serviceCategories.map((category, idx) => (
-            <CategoryCard key={category.id} category={category} index={idx} />
+        {/* Row 1: Top 3 Research Services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+          {researchServicesData.slice(0, 3).map((service, idx) => (
+            <ResearchServiceCard key={service.id} service={service} index={idx} />
+          ))}
+        </div>
+
+        {/* Row 2: Bottom 2 Research Services (Centered & balanced on desktop) */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-16">
+          {researchServicesData.slice(3).map((service, idx) => (
+            <div
+              key={service.id}
+              className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]"
+            >
+              <ResearchServiceCard service={service} index={idx + 3} />
+            </div>
           ))}
         </div>
 
@@ -1309,13 +1323,11 @@ SEBI Registration: INH000025300
                       className="w-full bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 appearance-none cursor-pointer min-h-[44px] text-sm"
                     >
                       <option>Select a service...</option>
-                      <option>Equity Cash Market</option>
-                      <option>Stock Futures</option>
-                      <option>Index Futures (Nifty &amp; BankNifty)</option>
-                      <option>Stock Options</option>
-                      <option>Index Options</option>
-                      <option>Commodity (MCX Gold &amp; Silver)</option>
-                      <option>Long-Term Equity Portfolio</option>
+                      <option>Commodity</option>
+                      <option>Index + Equity FnO</option>
+                      <option>Long-Term Investment</option>
+                      <option>Premium Combo</option>
+                      <option>Swing Trade</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-text">
                       <span className="material-symbols-outlined text-sm">expand_more</span>

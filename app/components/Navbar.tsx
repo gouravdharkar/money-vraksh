@@ -68,7 +68,7 @@ export default function Navbar() {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        window.history.pushState(null, "", href);
+        window.history.replaceState(null, "", "/");
         setActiveSection(id);
       }
     }

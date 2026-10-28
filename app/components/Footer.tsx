@@ -5,6 +5,15 @@ import Image from "next/image";
 import logoImg from "@/public/logo1.jpeg";
 
 export default function Footer() {
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const elem = document.getElementById(id);
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", "/");
+    }
+  };
+
   return (
     <footer className="bg-background-midnight w-full mt-auto relative z-10 before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
@@ -39,15 +48,27 @@ export default function Footer() {
           <span className="font-label-md text-label-md text-on-surface mb-1 font-bold uppercase tracking-wider text-xs">
             Company
           </span>
-          <Link href="/#home" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <a
+            href="#home"
+            onClick={(e) => handleScrollToSection(e, "home")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             Home
-          </Link>
-          <Link href="/#about" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => handleScrollToSection(e, "about")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             About Us
-          </Link>
-          <Link href="/#services" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          </a>
+          <a
+            href="#services"
+            onClick={(e) => handleScrollToSection(e, "services")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             Services
-          </Link>
+          </a>
         </div>
 
         {/* Support Links */}
@@ -55,15 +76,27 @@ export default function Footer() {
           <span className="font-label-md text-label-md text-on-surface mb-1 font-bold uppercase tracking-wider text-xs">
             Support &amp; Payment
           </span>
-          <Link href="/#payment" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <a
+            href="#payment"
+            onClick={(e) => handleScrollToSection(e, "payment")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             Payment Details
-          </Link>
-          <Link href="/#contact" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => handleScrollToSection(e, "contact")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             FAQ
-          </Link>
-          <Link href="/#contact" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => handleScrollToSection(e, "contact")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             Contact Us
-          </Link>
+          </a>
         </div>
 
         {/* Legal & Compliance */}
@@ -71,18 +104,26 @@ export default function Footer() {
           <span className="font-label-md text-label-md text-on-surface mb-1 font-bold uppercase tracking-wider text-xs">
             Legal &amp; Compliance
           </span>
-          <Link href="/#disclosure" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          <a
+            href="#disclosure"
+            onClick={(e) => handleScrollToSection(e, "disclosure")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             Disclosure
-          </Link>
-          <Link href="/#disclosure" className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5">
+          </a>
+          <a
+            href="#disclosure"
+            onClick={(e) => handleScrollToSection(e, "disclosure")}
+            className="text-slate-text hover:text-primary transition-colors text-sm focus-ring rounded-sm w-fit py-0.5 cursor-pointer"
+          >
             Terms &amp; Conditions
-          </Link>
+          </a>
           <p className="font-body-md text-premium-gold text-xs leading-relaxed mt-2">
             © {new Date().getFullYear()} Money Vriksh. SEBI Reg. NO INH000025300.
           </p>
         </div>
       </div>
-      
+
       {/* Compliance Bottom Bar */}
       <div className="relative py-6 px-margin-mobile md:px-margin-desktop text-center before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/15 before:to-transparent before:content-['']">
         <p className="font-data-mono text-data-mono text-premium-gold max-w-4xl mx-auto font-normal text-[11px] opacity-75 leading-relaxed">
