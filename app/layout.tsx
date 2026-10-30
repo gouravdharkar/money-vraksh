@@ -62,12 +62,19 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col">
+        {/* Skip to Main Content for Accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-background focus:rounded-md focus:font-semibold focus:shadow-lg focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <MetaPixel />
         <ThemeProvider>
           <Navbar />
-          <div className="flex-1 flex flex-col">
+          <main id="main-content" className="flex-1 flex flex-col">
             {children}
-          </div>
+          </main>
           <Footer />
           <ToastContainer />
         </ThemeProvider>

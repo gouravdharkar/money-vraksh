@@ -30,6 +30,7 @@ export default function Navbar() {
 
   return (
     <nav
+      aria-label="Main Navigation"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-surface-glass/95 backdrop-blur-2xl shadow-md border-b border-primary/20"

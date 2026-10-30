@@ -334,6 +334,7 @@ SEBI Registration: INH000025300
           ======================================================== */}
       <section
         id="home"
+        aria-label="Introduction and Overview"
         className="relative px-margin-mobile md:px-margin-desktop py-6 sm:py-10 max-w-container-max mx-auto scroll-mt-24"
       >
         <motion.div
@@ -409,6 +410,7 @@ SEBI Registration: INH000025300
           ======================================================== */}
       <section
         id="about"
+        aria-label="About Money Vriksh"
         className="relative px-margin-mobile md:px-margin-desktop py-16 md:py-24 max-w-container-max mx-auto scroll-mt-24"
       >
         {/* Section Header */}
@@ -745,6 +747,7 @@ SEBI Registration: INH000025300
           ======================================================== */}
       <section
         id="services"
+        aria-label="Research Services"
         className="relative px-margin-mobile md:px-margin-desktop py-16 md:py-24 max-w-container-max mx-auto scroll-mt-24 before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
       >
         <div className="text-center mb-14 sm:mb-16">
@@ -897,6 +900,7 @@ SEBI Registration: INH000025300
           ======================================================== */}
       <section
         id="payment"
+        aria-label="Official Payment and Bank Information"
         className="relative px-margin-mobile md:px-margin-desktop py-16 md:py-24 max-w-container-max mx-auto scroll-mt-24 before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
       >
         <div className="mb-12 sm:mb-14 text-center max-w-3xl mx-auto">
@@ -1234,6 +1238,7 @@ SEBI Registration: INH000025300
           ======================================================== */}
       <section
         id="contact"
+        aria-label="Contact Us and Inquiries"
         className="relative px-margin-mobile md:px-margin-desktop py-16 md:py-24 max-w-container-max mx-auto scroll-mt-24 before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
       >
         <div className="mb-12 sm:mb-16 text-center max-w-3xl mx-auto">
@@ -1267,11 +1272,14 @@ SEBI Registration: INH000025300
             <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col">
-                  <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
+                  <label htmlFor="fullName" className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                     Full Name
                   </label>
                   <input
+                    id="fullName"
                     name="fullName"
+                    aria-label="Full Name"
+                    autoComplete="name"
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
@@ -1281,11 +1289,14 @@ SEBI Registration: INH000025300
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
+                  <label htmlFor="email" className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                     Email Address
                   </label>
                   <input
+                    id="email"
                     name="email"
+                    aria-label="Email Address"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -1298,11 +1309,14 @@ SEBI Registration: INH000025300
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col">
-                  <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
+                  <label htmlFor="phone" className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                     Phone Number
                   </label>
                   <input
+                    id="phone"
                     name="phone"
+                    aria-label="Phone Number"
+                    autoComplete="tel"
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
@@ -1312,22 +1326,24 @@ SEBI Registration: INH000025300
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
+                  <label htmlFor="service" className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                     Service Interest
                   </label>
                   <div className="relative">
                     <select
+                      id="service"
                       name="service"
+                      aria-label="Service Interest"
                       value={formData.service}
                       onChange={handleInputChange}
                       className="w-full bg-[#070707] border border-white/5 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] text-on-surface p-3 sm:p-3.5 rounded-lg focus:border-primary/40 focus:outline-none transition-all focus:ring-1 focus:ring-primary/30 appearance-none cursor-pointer min-h-[44px] text-sm"
                     >
-                      <option>Select a service...</option>
-                      <option>Commodity</option>
-                      <option>Index + Equity FnO</option>
-                      <option>Long-Term Investment</option>
-                      <option>Premium Combo</option>
-                      <option>Swing Trade</option>
+                      <option value="">Select a service...</option>
+                      <option value="Commodity">Commodity</option>
+                      <option value="Index + Equity FnO">Index + Equity FnO</option>
+                      <option value="Long-Term Investment">Long-Term Investment</option>
+                      <option value="Premium Combo">Premium Combo</option>
+                      <option value="Swing Trade">Swing Trade</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-text">
                       <span className="material-symbols-outlined text-sm">expand_more</span>
@@ -1337,11 +1353,13 @@ SEBI Registration: INH000025300
               </div>
 
               <div className="flex flex-col">
-                <label className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
+                <label htmlFor="message" className="font-label-md text-[10px] text-slate-text mb-2 uppercase tracking-widest font-semibold">
                   Message
                 </label>
                 <textarea
+                  id="message"
                   name="message"
+                  aria-label="Message"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -1625,6 +1643,8 @@ SEBI Registration: INH000025300
                 <div key={idx} className="border-b border-white/5 pb-4">
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${idx}`}
                     className="w-full flex justify-between items-center text-left py-3 font-headline-md text-sm sm:text-base font-bold text-on-surface font-headline cursor-pointer hover:text-primary transition-colors focus-ring rounded min-h-[44px]"
                   >
                     <span className="pr-4">{faq.question}</span>
@@ -1639,6 +1659,9 @@ SEBI Registration: INH000025300
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
+                        id={`faq-answer-${idx}`}
+                        role="region"
+                        aria-label={faq.question}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -1663,6 +1686,7 @@ SEBI Registration: INH000025300
           ======================================================== */}
       <section
         id="disclosure"
+        aria-label="Regulatory Disclosures and Compliance"
         className="relative px-margin-mobile md:px-margin-desktop py-16 md:py-24 max-w-container-max mx-auto scroll-mt-24 before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']"
       >
         {/* Warning Banner */}
