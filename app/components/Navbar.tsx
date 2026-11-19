@@ -10,8 +10,10 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [themeMenuOpen, setThemeMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
     };
@@ -66,13 +68,20 @@ export default function Navbar() {
           {/* Theme Dropdown Toggle */}
           <div className="relative">
             <button
+              suppressHydrationWarning
               onClick={() => setThemeMenuOpen(!themeMenuOpen)}
               className="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high/50 text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer focus-ring min-w-[40px] min-h-[40px]"
               title="Switch Theme"
               aria-label="Switch Theme"
             >
-              <span className="material-symbols-outlined text-xl">
-                {theme === "midnight" ? "dark_mode" : theme === "truedark" ? "brightness_3" : "light_mode"}
+              <span className="material-symbols-outlined text-xl" suppressHydrationWarning>
+                {!mounted
+                  ? "dark_mode"
+                  : theme === "midnight"
+                  ? "dark_mode"
+                  : theme === "truedark"
+                  ? "brightness_3"
+                  : "light_mode"}
               </span>
             </button>
 

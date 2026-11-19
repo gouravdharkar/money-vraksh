@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ResearchService } from '../services/researchServicesData';
+import AgreementModal from './AgreementModal';
 
 interface ResearchServiceCardProps {
   service: ResearchService;
@@ -12,6 +13,7 @@ interface ResearchServiceCardProps {
 export default function ResearchServiceCard({ service, index }: ResearchServiceCardProps) {
   const [selectedDuration, setSelectedDuration] = useState<'monthly' | 'quarterly'>('monthly');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAgreementOpen, setIsAgreementOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown on click outside
@@ -30,7 +32,7 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
   const currentPlan = service.plans[selectedDuration];
 
   // WhatsApp redirection link
-  const whatsappMessage = `Hi, I want to get started with Money Vriksh Research Service: ${service.title} (${currentPlan.label}). Please share onboarding and payment details.`;
+  const whatsappMessage = `Hi, I want to pay and subscribe for Money Vriksh Research Service: ${service.title} (${currentPlan.label} - ${currentPlan.priceFormatted}). Please share onboarding and payment details.`;
   const whatsappUrl = `https://wa.me/919827562967?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -170,18 +172,27 @@ export default function ResearchServiceCard({ service, index }: ResearchServiceC
             </p>
           </div>
 
-          {/* Action Button: Get Started (All cards use identical emerald green gradient-bg-primary button) */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Action Button: Pay Now (Opens SEBI Mandated MITC Agreement Modal) */}
+          <button
+            type="button"
+            onClick={() => setIsAgreementOpen(true)}
             className="w-full h-[48px] py-3 px-6 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer group shadow-lg gradient-bg-primary text-background hover:shadow-[0_0_25px_rgba(50,205,148,0.4)] hover:scale-[1.01] active:scale-[0.98]"
           >
-            <span>Get Started</span>
+            <span>Pay Now</span>
             <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-200">
               arrow_forward
             </span>
-          </a>
+          </button>
+
+          {/* Agreement Modal */}
+          <AgreementModal
+            isOpen={isAgreementOpen}
+            onClose={() => setIsAgreementOpen(false)}
+            serviceTitle={service.title}
+            planLabel={currentPlan.label}
+            priceFormatted={currentPlan.priceFormatted}
+            whatsappUrl={whatsappUrl}
+          />
 
           {/* Security badge below button */}
           <div className="flex items-center justify-center gap-1.5 text-xs text-slate-text font-medium mt-3 mb-6 h-5">

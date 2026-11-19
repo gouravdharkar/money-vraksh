@@ -12,20 +12,29 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      const savedTheme = (localStorage.getItem("money-Vriksh-theme") || localStorage.getItem("money-vriksh-theme") || localStorage.getItem("gourav-dharkar-theme")) as Theme;
+  const [theme, setThemeState] = useState<Theme>("midnight");
+
+  useEffect(() => {
+    try {
+      const savedTheme = (localStorage.getItem("money-Vriksh-theme") ||
+        localStorage.getItem("money-vriksh-theme") ||
+        localStorage.getItem("gourav-dharkar-theme")) as Theme;
       if (savedTheme && ["midnight", "truedark", "light"].includes(savedTheme)) {
-        return savedTheme;
+        setThemeState(savedTheme);
       }
+    } catch {
+      // ignore private browsing or storage errors
     }
-    return "midnight";
-  });
+  }, []);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem("money-Vriksh-theme", newTheme);
-    localStorage.setItem("gourav-dharkar-theme", newTheme);
+    try {
+      localStorage.setItem("money-Vriksh-theme", newTheme);
+      localStorage.setItem("gourav-dharkar-theme", newTheme);
+    } catch {
+      // ignore
+    }
   };
 
   useEffect(() => {

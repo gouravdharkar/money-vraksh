@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ToastContainer } from "./components/Toast";
 import MetaPixel from "./components/MetaPixel";
+import RegulatoryDisclosureModal from "./components/RegulatoryDisclosureModal";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -71,6 +72,7 @@ export default function RootLayout({
         </a>
         <MetaPixel />
         <ThemeProvider>
+          <RegulatoryDisclosureModal />
           <Navbar />
           <main id="main-content" className="flex-1 flex flex-col">
             {children}
