@@ -114,7 +114,14 @@ export default function AuthView() {
           }
         }, 800);
       } else {
-        setErrorMessage(res.error || "Failed to create account");
+        const err = res.error || "Failed to create account";
+        setErrorMessage(err);
+        if (err.toLowerCase().includes("already exists")) {
+          setLoginData((prev) => ({
+            ...prev,
+            identifier: signupData.email || signupData.username || prev.identifier,
+          }));
+        }
       }
     } catch {
       setErrorMessage("Network error occurred. Please try again.");
@@ -473,6 +480,40 @@ export default function AuthView() {
                   </div>
                 </div>
 
+                {/* Inline Error Notice if already registered */}
+                {errorMessage && (
+                  <div
+                    className={`p-3 rounded-xl border text-xs flex items-center justify-between gap-2 animate-shake ${
+                      isLight
+                        ? "bg-rose-50 border-rose-300 text-rose-800"
+                        : "bg-rose-500/10 border-rose-500/30 text-rose-400"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="material-symbols-outlined text-base shrink-0 text-rose-500">
+                        error
+                      </span>
+                      <span className="truncate">{errorMessage}</span>
+                    </div>
+                    {errorMessage.toLowerCase().includes("already exists") && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMode("login");
+                          setLoginData((prev) => ({
+                            ...prev,
+                            identifier: signupData.email || signupData.username || prev.identifier,
+                          }));
+                          setErrorMessage("");
+                        }}
+                        className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shrink-0 cursor-pointer"
+                      >
+                        Sign In Now
+                      </button>
+                    )}
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -693,6 +734,40 @@ export default function AuthView() {
                     </div>
                   </div>
                 </div>
+
+                {/* Inline Error Notice if already registered */}
+                {errorMessage && (
+                  <div
+                    className={`p-3 rounded-xl border text-xs flex items-center justify-between gap-2 animate-shake ${
+                      isLight
+                        ? "bg-rose-50 border-rose-300 text-rose-800"
+                        : "bg-rose-500/10 border-rose-500/30 text-rose-400"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="material-symbols-outlined text-base shrink-0 text-rose-500">
+                        error
+                      </span>
+                      <span className="truncate">{errorMessage}</span>
+                    </div>
+                    {errorMessage.toLowerCase().includes("already exists") && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMode("login");
+                          setLoginData((prev) => ({
+                            ...prev,
+                            identifier: signupData.email || signupData.username || prev.identifier,
+                          }));
+                          setErrorMessage("");
+                        }}
+                        className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shrink-0 cursor-pointer"
+                      >
+                        Sign In Now
+                      </button>
+                    )}
+                  </div>
+                )}
 
                 <button
                   type="submit"
