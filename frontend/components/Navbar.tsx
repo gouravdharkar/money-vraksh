@@ -49,7 +49,7 @@ export default function Navbar() {
         : "bg-surface-glass backdrop-blur-2xl shadow-sm border-b border-transparent"
         } before:absolute before:bottom-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:content-['']`}
     >
-      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-[76px] sm:h-[84px] max-w-container-max mx-auto w-full">
+      <div className="flex justify-between items-center px-3 sm:px-6 md:px-margin-desktop h-[68px] sm:h-[84px] max-w-container-max mx-auto w-full">
         {/* Brand */}
         <Link
           href="/"
@@ -321,7 +321,7 @@ export default function Navbar() {
           ) : (
             <Link
               href="/login"
-              className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full border text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${isLight
+              className={`whitespace-nowrap shrink-0 inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full border text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${isLight
                 ? "border-slate-300 hover:border-emerald-500/60 hover:bg-emerald-50 text-slate-800"
                 : "border-white/15 hover:border-emerald-500/40 hover:bg-emerald-500/10 text-white"
                 }`}
@@ -336,7 +336,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={handleScrollToContact}
-            className="inline-flex items-center justify-center gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex items-center justify-center gradient-bg-primary text-background font-label-md text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5 rounded-full hover:shadow-[0_0_15px_rgba(78,222,163,0.4)] transition-all duration-300 focus-ring font-bold shrink-0 cursor-pointer"
           >
             Get Started
           </a>

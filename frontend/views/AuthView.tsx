@@ -132,7 +132,7 @@ export default function AuthView() {
 
   return (
     <div
-      className={`min-h-screen pt-28 sm:pt-36 pb-20 px-4 sm:px-6 relative overflow-hidden flex flex-col justify-center items-center transition-colors duration-300 ${
+      className={`min-h-screen pt-20 sm:pt-32 pb-12 sm:pb-20 px-3 sm:px-6 relative overflow-hidden flex flex-col justify-center items-center transition-colors duration-300 ${
         isLight ? "bg-[#f8fafc] text-slate-900" : "bg-[#05080f] text-white"
       }`}
     >
@@ -144,34 +144,36 @@ export default function AuthView() {
         {/* Pay Now Context Alert Banner if user clicked Pay Now */}
         {redirectParam === "pay" && (
           <div
-            className={`mb-6 p-4 sm:p-5 rounded-2xl border shadow-md transition-all ${
+            className={`mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl border shadow-md transition-all ${
               isLight
                 ? "bg-emerald-50 border-emerald-300 text-slate-900"
                 : "bg-gradient-to-r from-emerald-950/80 via-[#0d201a] to-[#071410] border-emerald-500/40 text-white"
             }`}
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
-              <div className="flex items-start sm:items-center gap-3.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
                 <div
-                  className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border ${
+                  className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 border ${
                     isLight
                       ? "bg-emerald-600 text-white border-emerald-700 shadow-sm"
                       : "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
                   }`}
                 >
-                  <span className="material-symbols-outlined text-2xl">shopping_cart_checkout</span>
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">
+                    shopping_cart_checkout
+                  </span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 flex-wrap">
                     <span
-                      className={`text-[11px] font-extrabold uppercase tracking-wider ${
+                      className={`text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider ${
                         isLight ? "text-emerald-800" : "text-emerald-400"
                       }`}
                     >
                       Subscription Checkout
                     </span>
                     <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                      className={`px-1.5 py-0.2 rounded text-[9px] font-bold border ${
                         isLight
                           ? "bg-emerald-100 text-emerald-900 border-emerald-300"
                           : "bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
@@ -181,41 +183,32 @@ export default function AuthView() {
                     </span>
                   </div>
                   <h3
-                    className={`text-base sm:text-lg font-black tracking-tight mt-0.5 ${
+                    className={`text-sm sm:text-base font-black tracking-tight mt-0.5 ${
                       isLight ? "text-slate-950" : "text-white"
                     }`}
                   >
                     {serviceParam ? `Subscribing to: ${serviceParam}` : "Research Advisory Service"}
                   </h3>
-                  <p
-                    className={`text-xs mt-0.5 leading-relaxed ${
-                      isLight ? "text-slate-700 font-medium" : "text-slate-300"
-                    }`}
-                  >
-                    Please <strong>Sign In</strong> or <strong>Create an Account</strong> to proceed to SEBI MITC agreement &amp; payment.
-                  </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 self-start sm:self-auto shrink-0">
-                <span
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-2 border shadow-xs ${
-                    isLight
-                      ? "bg-white text-emerald-900 border-emerald-300"
-                      : "bg-white/10 text-emerald-300 border-white/15"
-                  }`}
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>1-Step Login Required</span>
-                </span>
-              </div>
+              <span
+                className={`self-start sm:self-auto px-2.5 py-1 rounded-lg text-[11px] font-bold flex items-center gap-1.5 border shadow-xs ${
+                  isLight
+                    ? "bg-white text-emerald-900 border-emerald-300"
+                    : "bg-white/10 text-emerald-300 border-white/15"
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>1-Step Login Required</span>
+              </span>
             </div>
           </div>
         )}
 
         {/* Main Split Authentication Card */}
         <div
-          className={`rounded-3xl shadow-2xl border overflow-hidden transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 ${
+          className={`rounded-2xl sm:rounded-3xl shadow-2xl border overflow-hidden transition-all duration-300 flex flex-col lg:grid lg:grid-cols-12 ${
             isLight
               ? "bg-white border-slate-200 text-slate-900 shadow-slate-200/60"
               : "bg-[#0b121e]/90 border-white/10 text-white backdrop-blur-2xl shadow-black/80"
