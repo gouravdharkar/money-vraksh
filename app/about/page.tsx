@@ -1,5 +1,1 @@
-import { redirect } from "next/navigation";
-
-export default function AboutPage() {
-  redirect("/");
-}
+export { default } from "@/frontend/views/AboutView";

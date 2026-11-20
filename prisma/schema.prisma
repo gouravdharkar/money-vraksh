@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  email     String   @unique
+  phone     String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ClientOnboarding {
+  id                 String   @id @default(uuid())
+  userId             String?
+  fullName           String
+  email              String
+  phone              String
+  pan                String
+  serviceTitle       String
+  planLabel          String
+  priceFormatted     String
+  stepReached        Int      @default(2)
+  status             String   @default("LEAD_CAPTURED") // LEAD_CAPTURED, AGREEMENT_SIGNED, PAYMENT_SUBMITTED, VERIFIED_ACTIVE, REJECTED
+  signedDocumentName String?
+  signatureType      String?  // draw, select
+  signatureData      String?  // drawing data or selected font
+  paymentMethod      String?  @default("UPI_QR")
+  utrReference       String?
+  adminNotes         String?
+  ipAddress          String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

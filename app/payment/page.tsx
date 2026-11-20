@@ -1,5 +1,1 @@
-import { redirect } from "next/navigation";
-
-export default function PaymentPage() {
-  redirect("/");
-}
+export { default } from "@/frontend/views/PaymentView";

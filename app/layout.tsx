@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "./components/ThemeProvider";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import { ToastContainer } from "./components/Toast";
-import MetaPixel from "./components/MetaPixel";
-import RegulatoryDisclosureModal from "./components/RegulatoryDisclosureModal";
+import "@/frontend/styles/globals.css";
+import { ThemeProvider } from "@/frontend/components/ThemeProvider";
+import { AuthProvider } from "@/frontend/components/AuthProvider";
+import Navbar from "@/frontend/components/Navbar";
+import Footer from "@/frontend/components/Footer";
+import { ToastContainer } from "@/frontend/components/Toast";
+import MetaPixel from "@/frontend/components/MetaPixel";
+import RegulatoryDisclosureModal from "@/frontend/components/RegulatoryDisclosureModal";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -72,13 +73,15 @@ export default function RootLayout({
         </a>
         <MetaPixel />
         <ThemeProvider>
-          <RegulatoryDisclosureModal />
-          <Navbar />
-          <main id="main-content" className="flex-1 flex flex-col">
-            {children}
-          </main>
-          <Footer />
-          <ToastContainer />
+          <AuthProvider>
+            <RegulatoryDisclosureModal />
+            <Navbar />
+            <main id="main-content" className="flex-1 flex flex-col">
+              {children}
+            </main>
+            <Footer />
+            <ToastContainer />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
