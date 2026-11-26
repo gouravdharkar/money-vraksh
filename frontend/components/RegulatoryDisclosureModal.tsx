@@ -139,7 +139,7 @@ export default function RegulatoryDisclosureModal() {
                 >
                   INH000025300
                 </strong>
-                ) solely for information regarding research services.
+                , Office Address: Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010) solely for information regarding research services.
               </p>
             </div>
 

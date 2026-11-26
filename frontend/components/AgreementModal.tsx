@@ -919,7 +919,7 @@ export default function AgreementModal({
                     </p>
                     <div className="pl-4 mt-1.5 space-y-1">
                       <p>
-                        <strong>Step 1:</strong> The client should first contact the RA using the details on the RA&apos;s website or the contact details provided in the Grievance Redressal / Escalation Matrix (dharkargourav@gmail.com | +91 98275 62967).
+                        <strong>Step 1:</strong> The client should first contact the RA using the details on the RA&apos;s website or the contact details provided in the Grievance Redressal / Escalation Matrix (dharkargourav@gmail.com | +91 98275 62967 | Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010).
                       </p>
                       <p>
                         <strong>Step 2:</strong> If the resolution is unsatisfactory, the client can also lodge grievances through SEBI&apos;s SCORES platform: <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="underline font-mono text-emerald-600 hover:text-emerald-700">https://scores.sebi.gov.in</a>.
@@ -1514,6 +1514,12 @@ export default function AgreementModal({
                               moneyvriksh.com
                             </span>
                           </p>
+                          <p className={isLight ? "text-slate-700" : "text-slate-300"}>
+                            Office Address:{" "}
+                            <span className={isLight ? "text-slate-900" : "text-white"}>
+                              Office No. 107, Vikram Urbane, Vijay Nagar, Indore, PIN - 452010
+                            </span>
+                          </p>
                         </div>
 
                         {/* Client */}
@@ -1681,7 +1687,7 @@ export default function AgreementModal({
                           </p>
                           <div className="pl-4 mt-1.5 space-y-1">
                             <p>
-                              <strong>Step 1:</strong> The client should first contact the RA using the details on the RA&apos;s website or the contact details provided in the Grievance Redressal / Escalation Matrix (dharkargourav@gmail.com | +91 98275 62967).
+                              <strong>Step 1:</strong> The client should first contact the RA using the details on the RA&apos;s website or the contact details provided in the Grievance Redressal / Escalation Matrix (dharkargourav@gmail.com | +91 98275 62967 | Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010).
                             </p>
                             <p>
                               <strong>Step 2:</strong> If the resolution is unsatisfactory, the client can also lodge grievances through SEBI&apos;s SCORES platform: <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="underline font-mono text-emerald-600 hover:text-emerald-700">https://scores.sebi.gov.in</a>.

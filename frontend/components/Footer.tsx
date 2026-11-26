@@ -48,6 +48,15 @@ export default function Footer() {
           <p className="font-body-md text-body-md text-slate-text text-sm leading-relaxed">
             Empowering investors with institutional-grade research, algorithm-backed setups, and data-driven insights.
           </p>
+          <div className="flex items-start gap-2 text-xs text-slate-text leading-relaxed pt-1">
+            <span className="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">
+              location_on
+            </span>
+            <div>
+              <span className="text-on-surface font-semibold block text-[11px] uppercase tracking-wider">Office Address:</span>
+              <span>Office No. 107, Vikram Urbane, Vijay Nagar, Indore, PIN - 452010</span>
+            </div>
+          </div>
         </div>
 
         {/* Company Links */}
@@ -134,7 +143,7 @@ export default function Footer() {
       {/* Compliance Bottom Bar */}
       <div className="relative py-6 px-margin-mobile md:px-margin-desktop text-center before:absolute before:top-0 before:left-1/4 before:right-1/4 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/15 before:to-transparent before:content-['']">
         <p className="font-data-mono text-data-mono text-premium-gold max-w-4xl mx-auto font-normal text-[11px] opacity-75 leading-relaxed">
-          Disclaimer: Money Vriksh is an individual SEBI registered Research Analyst (INH000025300). Trading and investing in stock markets involve significant market risk. All recommendations are for educational &amp; advisory purposes.
+          Disclaimer: Money Vriksh is an individual SEBI registered Research Analyst (INH000025300). Office Address: Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010. Trading and investing in stock markets involve significant market risk. All recommendations are for educational &amp; advisory purposes.
         </p>
       </div>
     </footer>

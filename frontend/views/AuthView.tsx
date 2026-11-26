@@ -216,7 +216,7 @@ export default function AuthView() {
         >
           {/* LEFT SIDE: Brand Identity, Trust Signals & SEBI Info */}
           <div
-            className={`lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r ${
+            className={`order-2 lg:order-1 lg:col-span-5 p-5 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-r ${
               isLight
                 ? "bg-gradient-to-br from-slate-50 via-emerald-50/40 to-slate-100 border-slate-200"
                 : "bg-gradient-to-br from-[#0c1626] via-[#09111c] to-[#040810] border-white/10"
@@ -305,17 +305,47 @@ export default function AuthView() {
               </div>
             </div>
 
-            {/* Bottom Support Callout */}
+            {/* Bottom Support Callout with Office Address */}
             <div className={`mt-6 pt-4 border-t text-[11px] ${isLight ? "border-slate-200 text-slate-500" : "border-white/10 text-slate-400"}`}>
-              <span>Need help? WhatsApp Support: </span>
-              <strong className={isLight ? "text-slate-800" : "text-slate-200"}>+91 98275 62967</strong>
+              <div>
+                <span>Need help? WhatsApp Support: </span>
+                <strong className={isLight ? "text-slate-800" : "text-slate-200"}>+91 98275 62967</strong>
+              </div>
+              <div className="mt-1 text-[10.5px] opacity-80">
+                Office: Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010
+              </div>
             </div>
           </div>
 
-          {/* RIGHT SIDE: Interactive Login & Signup Form */}
-          <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-center">
+          {/* RIGHT SIDE: Interactive Login & Signup Form (order-1 on mobile) */}
+          <div className="order-1 lg:order-2 lg:col-span-7 p-5 sm:p-8 flex flex-col justify-center">
             {/* Top Form Header */}
             <div className="mb-6">
+              {/* Mobile-only compact brand pill */}
+              <div className={`flex lg:hidden items-center justify-between pb-3 mb-3 border-b ${
+                isLight ? "border-slate-200" : "border-white/10"
+              }`}>
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-xl overflow-hidden ring-1 ring-emerald-500/40 shrink-0">
+                    <Image
+                      src={logoImg}
+                      alt="Money Vriksh Logo"
+                      width={28}
+                      height={28}
+                      className="object-cover"
+                    />
+                  </div>
+                  <span className="font-instrument text-sm font-bold tracking-tight">
+                    Money <span className={`italic ${isLight ? "text-emerald-700" : "text-emerald-400"}`}>Vriksh</span>
+                  </span>
+                </div>
+                <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${
+                  isLight ? "bg-emerald-50 border-emerald-200 text-emerald-800" : "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
+                }`}>
+                  SEBI INH000025300
+                </span>
+              </div>
+
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-xl sm:text-2xl font-black tracking-tight">

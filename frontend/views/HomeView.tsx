@@ -1444,12 +1444,12 @@ SEBI Registration: INH000025300
                     </div>
                     <div>
                       <p className="font-label-md text-[10px] text-slate-text mb-1 uppercase tracking-wider font-semibold">
-                        Address
+                        Office Address
                       </p>
                       <p className="font-body-md text-body-md text-on-surface leading-relaxed">
-                        103 Prakash Nagar,
+                        Office No. 107, Vikram Urbane,
                         <br />
-                        Dhar, Madhya Pradesh 454001
+                        Vijay Nagar, Indore, Madhya Pradesh - 452010
                       </p>
                     </div>
                   </div>

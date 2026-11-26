@@ -66,7 +66,7 @@ export function AboutSection() {
           </ul>
 
           <p className="font-body-md text-xs sm:text-sm text-slate-text -mt-1">
-            Money Vriksh is SEBI registered (Reg. No INH000025300) as an individual Research Analyst, providing reliable and insightful stock and index recommendations to clients.
+            Money Vriksh is SEBI registered (Reg. No INH000025300) as an individual Research Analyst (Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010), providing reliable and insightful stock and index recommendations to clients.
           </p>
 
           {/* Buttons */}
