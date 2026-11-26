@@ -490,7 +490,7 @@ export default function ProfileView() {
                   <p>
                     <strong>Gourav Dharkar</strong> | SEBI Registration No. <strong>INH000025300</strong> | BSE RA Enlistment No. <strong>6983</strong>
                   </p>
-                  <p>Website: www.moneyvrikshresearch.com | Contact: +91 9827562967</p>
+                  <p>Website: www.moneyvrikshresearch.com | Email: info@moneyvrikshresearch.com | Contact: +91 9827562967</p>
                   <p>Office Address: Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010</p>
                   <p className="text-[11px] opacity-70 italic">
                     Prescribed MITC: Annexure A to SEBI Circular No. SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/20 dated 17 February 2025.

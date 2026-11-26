@@ -1200,7 +1200,7 @@ SEBI Registration: INH000025300
               </a>
 
               <a
-                href="mailto:dharkargourav@gmail.com?subject=Payment%20Confirmation%20-%20Money%20Vriksh&body=Hello%20Money%20Vriksh%2C%0A%0AI%20have%20transferred%20the%20subscription%20fee.%20Attached%20is%20my%20payment%20receipt.%0A%0AName%3A%0APhone%3A%0AService%20Opted%3A%0AUTR%20%2F%20Transaction%20ID%3A"
+                href="mailto:info@moneyvrikshresearch.com?subject=Payment%20Confirmation%20-%20Money%20Vriksh&body=Hello%20Money%20Vriksh%2C%0A%0AI%20have%20transferred%20the%20subscription%20fee.%20Attached%20is%20my%20payment%20receipt.%0A%0AName%3A%0APhone%3A%0AService%20Opted%3A%0AUTR%20%2F%20Transaction%20ID%3A"
                 className="bg-[#070707] border border-white/10 hover:border-primary/40 text-premium-gold font-label-md text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full hover:bg-white/5 transition-all font-bold focus-ring cursor-pointer shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.6)] flex items-center justify-center gap-2 min-h-[44px]"
               >
                 <span className="material-symbols-outlined text-[18px] sm:text-[20px]">
@@ -1468,10 +1468,10 @@ SEBI Registration: INH000025300
                         Email
                       </p>
                       <a
-                        href="mailto:dharkargourav@gmail.com"
+                        href="mailto:info@moneyvrikshresearch.com"
                         className="font-body-md text-body-md text-on-surface font-semibold hover:text-primary transition-colors block break-all"
                       >
-                        dharkargourav@gmail.com
+                        info@moneyvrikshresearch.com
                       </a>
                     </div>
                   </div>
@@ -1553,7 +1553,7 @@ SEBI Registration: INH000025300
           </a>
 
           <a
-            href="mailto:dharkargourav@gmail.com"
+            href="mailto:info@moneyvrikshresearch.com"
             className="block h-full group focus-ring rounded-2xl cursor-pointer"
           >
             <motion.div
@@ -1579,7 +1579,7 @@ SEBI Registration: INH000025300
                   Compliance Desk
                 </h4>
                 <p className="font-body-md text-xs text-slate-text">
-                  Write to dharkargourav@gmail.com
+                  Write to info@moneyvrikshresearch.com
                 </p>
               </div>
               <div className="font-data-mono text-xs text-premium-gold font-bold mt-4">

@@ -57,6 +57,17 @@ export default function Footer() {
               <span>Office No. 107, Vikram Urbane, Vijay Nagar, Indore, PIN - 452010</span>
             </div>
           </div>
+          <div className="flex items-center gap-2 text-xs text-slate-text leading-relaxed pt-1">
+            <span className="material-symbols-outlined text-primary text-base shrink-0">
+              mail
+            </span>
+            <a
+              href="mailto:info@moneyvrikshresearch.com"
+              className="text-slate-text hover:text-primary transition-colors font-medium break-all"
+            >
+              info@moneyvrikshresearch.com
+            </a>
+          </div>
         </div>
 
         {/* Company Links */}

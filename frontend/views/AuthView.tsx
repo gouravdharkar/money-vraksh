@@ -305,11 +305,11 @@ export default function AuthView() {
               </div>
             </div>
 
-            {/* Bottom Support Callout with Office Address */}
+            {/* Bottom Support Callout with Office Address & Email */}
             <div className={`mt-6 pt-4 border-t text-[11px] ${isLight ? "border-slate-200 text-slate-500" : "border-white/10 text-slate-400"}`}>
-              <div>
-                <span>Need help? WhatsApp Support: </span>
-                <strong className={isLight ? "text-slate-800" : "text-slate-200"}>+91 98275 62967</strong>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span>WhatsApp: <strong className={isLight ? "text-slate-800" : "text-slate-200"}>+91 98275 62967</strong></span>
+                <span>Email: <a href="mailto:info@moneyvrikshresearch.com" className="font-semibold text-emerald-600 hover:underline">info@moneyvrikshresearch.com</a></span>
               </div>
               <div className="mt-1 text-[10.5px] opacity-80">
                 Office: Office No. 107, Vikram Urbane, Vijay Nagar, Indore - 452010
